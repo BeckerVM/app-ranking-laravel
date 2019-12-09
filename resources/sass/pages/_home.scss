@@ -1,0 +1,48 @@
+.home {
+
+  &__container {
+    padding: 5rem 8rem;
+    background-color: $color-background-2;
+  }
+
+  &__menu {
+    width: 110rem;
+    background-color: $color-white-1;
+    display: flex;
+    margin: 0 auto 5rem;
+
+    a {
+      transition: all .5s;
+      flex: 1;
+      text-decoration: none;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.8rem;
+      color: $color-background-1;
+      font-weight: 600;
+    }
+
+    a:hover {
+      background-color: #ccc;
+    }
+  }
+
+  &__shop {
+    display: flex;
+    width: 110rem;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  &__shop-col {
+    width: 25%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+
+  &__shop-item {
+    background-color: $color-background-3;
+    height: 40rem;
+  }
+
+}

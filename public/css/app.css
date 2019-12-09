@@ -1,0 +1,328 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
+*/
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-title {
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.mt-30 {
+  margin-top: 3rem;
+}
+
+.b-transparent {
+  background-color: transparent !important;
+}
+
+.shandow-none {
+  box-shadow: none !important;
+}
+
+.h-90 {
+  height: 9rem !important;
+}
+
+.banner {
+  margin-top: 7rem;
+  background-color: #121212;
+  height: 30rem;
+  width: 100%;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: #282828;
+  height: 7rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  padding: 0 2.4rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+}
+
+.header__container-left {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  color: #fff;
+}
+
+.header__icon-bar {
+  font-size: 1.8rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  display: -webkit-box;
+  display: flex;
+  border-radius: 50%;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.header__icon-bar:hover {
+  background-color: #c00;
+}
+
+.header__logo {
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+.header__form {
+  display: -webkit-box;
+  display: flex;
+  background-color: #121212;
+  border-radius: 0.3rem;
+  overflow: hidden;
+}
+
+.header__form-btn {
+  border: none;
+  background-color: transparent;
+  padding: 1rem;
+}
+
+.header__form-btn i {
+  color: #fff;
+}
+
+.header__form-input {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem 0.8rem 0;
+  outline: none;
+  width: 40rem;
+}
+
+.header__btn-auth {
+  background-color: #fff;
+  color: #282828;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+  border-radius: 0.3rem;
+  font-weight: 900;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.header__btn-auth:hover {
+  background-color: #c00;
+  color: #fff;
+}
+
+.header__btn-auth:nth-child(1) {
+  margin-right: 1.5rem;
+}
+
+.subheader {
+  padding-top: 7rem;
+}
+
+.subheader__superior {
+  background-color: #fff;
+}
+
+.subheader__menu,
+.subheader__superior-content {
+  width: 90rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  font-size: 1.4rem;
+}
+
+.subheader__superior-content {
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.subheader__mid {
+  background-color: #121212;
+  width: 100%;
+  height: 15rem;
+}
+
+.subheader__inferior {
+  background-color: #fff;
+}
+
+.subheader__btn {
+  background-color: #ff2d20;
+  color: #fff;
+  padding: 0.5rem 3rem;
+  border-radius: 0.3rem;
+  margin-left: 1.5rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.subheader__btn:hover {
+  background-color: #c00;
+}
+
+.subheader__menu {
+  padding: 0;
+}
+
+.subheader__menu a {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-box-flex: 1;
+          flex: 1;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  color: #282828;
+  font-weight: 600;
+}
+
+.subheader__menu a:hover {
+  background-color: #ccc;
+}
+
+.home__container {
+  padding: 5rem 8rem;
+  background-color: #1f1f1f;
+}
+
+.home__menu {
+  width: 110rem;
+  background-color: #fff;
+  display: -webkit-box;
+  display: flex;
+  margin: 0 auto 5rem;
+}
+
+.home__menu a {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-box-flex: 1;
+          flex: 1;
+  text-decoration: none;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1.8rem;
+  color: #282828;
+  font-weight: 600;
+}
+
+.home__menu a:hover {
+  background-color: #ccc;
+}
+
+.home__shop {
+  display: -webkit-box;
+  display: flex;
+  width: 110rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.home__shop-col {
+  width: 25%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.home__shop-item {
+  background-color: #121212;
+  height: 40rem;
+}
+
+.deal__container {
+  padding: 5rem 8rem;
+  background-color: #1f1f1f;
+}
+
+.deal__container-pub {
+  padding: 0 1rem;
+}
+
+.deal__pub {
+  background-color: #121212;
+  width: 100%;
+  height: 50rem;
+  margin: 0 auto 3rem;
+  width: 108rem;
+}
+
+.deal__shop {
+  display: -webkit-box;
+  display: flex;
+  width: 110rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.deal__shop-col {
+  width: 25%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.deal__shop-item {
+  background-color: #121212;
+  height: 35rem;
+}
+
+.login {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/images/fondo.jpg");
+  background-position: center;
+  background-size: cover;
+  padding-top: 7rem;
+}
+
