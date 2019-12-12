@@ -1,10 +1,10 @@
 const Vue = require('vue');
 
 new Vue({
-    el: '#appLogin',
+    el: '#appRegister',
     data: {
         message: 'Hello Vue!'
     }
 });
 
-console.log('appLogin');
+console.log('appRegister');

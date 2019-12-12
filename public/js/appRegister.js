@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12550,45 +12550,33 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/app/appLogin.js":
-/*!**************************************!*\
-  !*** ./resources/js/app/appLogin.js ***!
-  \**************************************/
+/***/ "./resources/js/app/appRegister.js":
+/*!*****************************************!*\
+  !*** ./resources/js/app/appRegister.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 new Vue({
-  el: '#appLogin',
+  el: '#appRegister',
   data: {
     message: 'Hello Vue!'
   }
 });
-console.log('appLogin');
+console.log('appRegister');
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!**********************************************************************!*\
-  !*** multi ./resources/js/app/appLogin.js ./resources/sass/app.scss ***!
-  \**********************************************************************/
+/***/ 1:
+/*!***********************************************!*\
+  !*** multi ./resources/js/app/appRegister.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appLogin.js */"./resources/js/app/appLogin.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appRegister.js */"./resources/js/app/appRegister.js");
 
 
 /***/ })
