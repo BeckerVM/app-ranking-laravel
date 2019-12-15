@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -12,9 +13,34 @@ class AuthController extends Controller
             [
                 'toggle_class' => true, 
                 'login' => true, 
-                'auth' => !true
             ]
         );
+    }
+
+    public function loginUser(Request $request) {
+        $data = $request->all();
+        $user = User::where('email', $data['email'])->first();
+        $response = [];
+        $code = 200;
+
+        if($user) {
+            if($user->password == $data['password']) {
+                $request->session()->put('user', [
+                    'email' => $user->email,
+                    'rol' => $user->rol,
+                    'state' => $user->state,
+                    'id' => $user->id
+                ]);
+            } else {
+                $response = ['error' => 'Ups! Usuario o contraseña incorrecta intentalo nuevamente.'];
+                $code = 404;
+            }
+        } else {
+            $response = ['error' => 'Ups! Usuario no encontrado intentalo nuevamente.'];
+            $code = 404;
+        }
+   
+        return response()->json($response, $code);
     }
 
     public function register() {
@@ -22,9 +48,10 @@ class AuthController extends Controller
             'auth.register',
             [
                 'toggle_class' => true, 
-                'login' => false, 
-                'auth' => !true
+                'login' => false
             ]
         );
     }
+
+    
 }

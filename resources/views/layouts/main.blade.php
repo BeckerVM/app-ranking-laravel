@@ -13,6 +13,7 @@
 
   @yield('content')
 
+  <script src="/js/appHeader.js"></script>
   @yield('scripts')
   
 </body>

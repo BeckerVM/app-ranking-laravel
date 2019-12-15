@@ -8,7 +8,7 @@ class IndexController extends Controller {
     
     public function index() {
         return view(
-            'user.product',
+            'home',
             [
                 'toggle_class' => false, 
                 'login' => false, 
