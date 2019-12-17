@@ -117,6 +117,7 @@ a {
 .header__logo {
   font-size: 3rem;
   margin: 1rem;
+  color: #fff;
 }
 
 .header__form {
@@ -165,6 +166,12 @@ a {
 
 .header__btn-auth:nth-child(1) {
   margin-right: 1.5rem;
+}
+
+.header__user {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-right: 1rem;
 }
 
 .subheader {

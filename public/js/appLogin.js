@@ -14348,7 +14348,11 @@ new Vue({
         email: this.email,
         password: this.password
       }).then(function (response) {
-        window.location.href = "http://localhost:3000";
+        if (response.data.rol === 'normal' || response.data.rol === 'comerciante') {
+          window.location.href = "http://localhost:3000";
+        } else {
+          window.location.href = "http://localhost:3000/admin/dashboard";
+        }
       })["catch"](function (err) {
         _this.error = err.response.data.error;
         setTimeout(function () {

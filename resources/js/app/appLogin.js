@@ -18,7 +18,11 @@ new Vue({
         submitLoginForm: function() {
             const url = 'http://localhost:3000/login'
             axios.post(url, { email: this.email, password: this.password }).then(response => { 
-                window.location.href = "http://localhost:3000";
+                if(response.data.rol === 'normal' || response.data.rol === 'comerciante') {
+                    window.location.href = "http://localhost:3000";
+                } else {
+                    window.location.href = "http://localhost:3000/admin/dashboard";
+                }
             })
             .catch(err => {
                 this.error = err.response.data.error
@@ -27,7 +31,7 @@ new Vue({
                     this.email = ''
                     this.password = ''
                     this.completedEmail = false
-                }, 2000);
+                }, 2000)
             })
         }
     }

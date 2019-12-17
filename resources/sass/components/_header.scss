@@ -41,6 +41,7 @@
   &__logo {
     font-size: 3rem;
     margin: 1rem;
+    color: $color-white-1;
   }
 
   &__form {
@@ -86,5 +87,11 @@
 
   &__btn-auth:nth-child(1) {
     margin-right: 1.5rem;
+  }
+
+  &__user {
+    font-size: 1.4rem;
+    color: $color-white-1;
+    margin-right: 1rem;
   }
 }

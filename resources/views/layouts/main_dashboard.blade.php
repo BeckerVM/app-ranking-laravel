@@ -10,11 +10,11 @@
   <link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
+    @include('partials.header')
+    @yield('content')
 
-  @yield('content')
-
-  <script src="/js/appHeader.js"></script>
-  @yield('scripts')
+    <script src="/js/appHeader.js"></script>
+    @yield('scripts')
   
 </body>
 </html>

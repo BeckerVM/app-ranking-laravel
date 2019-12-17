@@ -31,6 +31,7 @@ class AuthController extends Controller
                     'state' => $user->state,
                     'id' => $user->id
                 ]);
+                $response = ['rol' => $user->rol];
             } else {
                 $response = ['error' => 'Ups! Usuario o contraseña incorrecta intentalo nuevamente.'];
                 $code = 404;
@@ -41,6 +42,11 @@ class AuthController extends Controller
         }
    
         return response()->json($response, $code);
+    }
+
+    public function logoutUser(Request $request) {
+        $request->session()->forget('user');
+        return redirect()->route('login');
     }
 
     public function register() {
