@@ -4,16 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MigrationUsers extends Migration
+class MigrationClients extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('email', 100);
-            $table->char('password', 100);
-            $table->enum('rol', ['normal', 'admin', 'comerciante']);
-            $table->enum('state', ['pendiente', 'activo', 'bloqueado']);
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ class MigrationUsers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        //
     }
 }
