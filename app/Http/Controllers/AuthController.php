@@ -59,5 +59,21 @@ class AuthController extends Controller
         );
     }
 
+    public function registerUser(Request $request) {
+        $data = $request->all();
+        $response = [];
+        $code = 200;
+
+        $user = User::where('email', $data['email'])->first();
+
+        if($user) {
+            $response = ['error' => 'Ups! El correo electronico ingresado ya esta en uso.'];
+            $code = 400;
+        } else {
+            $response = $data;
+        }
+
+        return response()->json($response, $code);
+    }
     
 }

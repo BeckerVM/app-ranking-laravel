@@ -1,10 +1,33 @@
-const Vue = require('vue');
+const Vue = require('vue')
 
 new Vue({
     el: '#appRegister',
     data: {
-        message: 'Hello Vue!'
-    }
-});
+        showInputs: false,
+        email: '',
+        username: '',
+        password: '',
+        rol: 'normal',
+        error: ''
+    },
+    methods: {
+        setShowInputs: function() {
+            this.showInputs = true
+        },
+        submitRegisterForm: function() {
+            const url = 'http://localhost:3000/registrate'
+            const { email, username, password, rol } = this
 
-console.log('appRegister');
+            window.axios.post(url, { email, username, password, rol }).then(response => {
+                console.log(response.data)
+            })
+            .catch(error => {
+                this.error = error.response.data.error
+                setTimeout(() => {
+                    this.error = ''
+                    this.email = ''
+                }, 2000);
+            })
+        }
+    }
+})

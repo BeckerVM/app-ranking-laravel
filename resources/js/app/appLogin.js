@@ -1,5 +1,4 @@
 const Vue = require('vue')
-const axios = require('axios')
 
 new Vue({
     el: '#appLogin',
@@ -17,11 +16,11 @@ new Vue({
         },
         submitLoginForm: function() {
             const url = 'http://localhost:3000/login'
-            axios.post(url, { email: this.email, password: this.password }).then(response => { 
+            window.axios.post(url, { email: this.email, password: this.password }).then(response => { 
                 if(response.data.rol === 'normal' || response.data.rol === 'comerciante') {
-                    window.location.href = "http://localhost:3000";
+                    window.location.href = "http://localhost:3000"
                 } else {
-                    window.location.href = "http://localhost:3000/admin/dashboard";
+                    window.location.href = "http://localhost:3000/admin/dashboard"
                 }
             })
             .catch(err => {
@@ -35,6 +34,4 @@ new Vue({
             })
         }
     }
-});
-
-console.log('appLogin')
+})
