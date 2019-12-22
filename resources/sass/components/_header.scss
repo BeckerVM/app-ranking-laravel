@@ -18,7 +18,14 @@
   }
 
   &__container-right {
+    align-self: stretch;
+    display: flex;
+    align-items: center; 
 
+    img {
+      border-radius: 100%;
+      margin-right: .5rem;
+    }
   }
 
   &__icon-bar {
@@ -81,7 +88,7 @@
   }
 
   &__btn-auth:hover {
-    background-color: $color-red-1;
+    background-color: $color-red-2;
     color: $color-white-1;
   }
 

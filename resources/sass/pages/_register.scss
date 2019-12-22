@@ -81,5 +81,19 @@
       border-radius: .3rem;
       margin-bottom: 1.5rem;
     }
+
+    &__registered {
+      color: $color-white-1;
+      margin-top: -15rem;
+      text-align: center;
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+    }
   
   }

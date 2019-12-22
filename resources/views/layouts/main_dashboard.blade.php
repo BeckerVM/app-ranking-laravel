@@ -10,10 +10,28 @@
   <link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
-    @include('partials.header')
-    @yield('content')
-
-    <script src="/js/appHeader.js"></script>
+    <div class="dashboard">
+      <div class="dashboard__container">
+        <header class="dashboard__header">
+          <h1 class="dashboard__title">MyM - <span>Dashboard</span></h1>
+          <div class="dashboard__user">
+            @if(Session::has('user'))
+              <img src="{{ Session::get('user')['profile'] }}" alt="Usuario" width="40" height="40">
+              <span href="#" class="header__user">{{ Session::get('user')['username'] }}</span>
+              <a href="{{ route('logout') }}"><i class="fas fa-power-off"></i></a>
+            @endif
+          </div>
+        </header>
+        <div class="dashboard__content">
+          <aside class="dashboard__aside">
+            ASIDE
+          </aside>
+          <main class="dashboard__main">
+            @yield('content')
+          </main>
+        </div>
+      </div>
+    </div>
     @yield('scripts')
   
 </body>

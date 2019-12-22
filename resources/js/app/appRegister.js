@@ -8,7 +8,9 @@ new Vue({
         username: '',
         password: '',
         rol: 'normal',
-        error: ''
+        error: '',
+        registered: false,
+        message: ''
     },
     methods: {
         setShowInputs: function() {
@@ -19,7 +21,8 @@ new Vue({
             const { email, username, password, rol } = this
 
             window.axios.post(url, { email, username, password, rol }).then(response => {
-                console.log(response.data)
+                this.message = response.data.message
+                this.registered = true
             })
             .catch(error => {
                 this.error = error.response.data.error

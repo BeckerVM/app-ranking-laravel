@@ -5,7 +5,7 @@
 @section('content')
   @include('partials.header')
   <div class="register" id="appRegister">
-    <form @submit.prevent="submitRegisterForm" class="register__form">
+    <form @submit.prevent="submitRegisterForm" class="register__form" v-if="!registered">
       <h1 class="register__title">M&M</h1>
       <transition
         enter-active-class="animated tada"
@@ -39,6 +39,14 @@
         <button class="register__btn-form register__btn-form--2" v-if="showInputs">Registrarse</button>
       </transition>
     </form>
+    <transition
+        enter-active-class="animated tada"
+    >
+      <div v-if="registered" class="register__registered">
+        <h3>SU CUENTA HA SIDO REGISTRADA CORRECTAMENTE</h3>
+        <p>@{{ message }}</p>
+      </div>
+    </transition>
   </div>
 @endsection
 

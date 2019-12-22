@@ -9,9 +9,10 @@
       <input class="header__form-input" type="text" placeholder="Busca en M&M"/>
     </form>
   </div>
-  <div className="header__container-right">
+  <div class="header__container-right">
     @if(Session::has('user'))
-      <a href="#" class="header__user">{{ Session::get('user')['email'] }}</a>
+      <img src="{{ Session::get('user')['profile'] }}" alt="Usuario" width="30" height="30">
+      <a href="#" class="header__user">{{ Session::get('user')['username'] }}</a>
       <a href="{{ route('logout') }}" class="header__btn-auth">Cerrar sesion</a>
     @else
       <a v-if="url === urlLogin || url !== urlLogin && url !== urlRegister" href="{{ route('register') }}" class="header__btn-auth">Registrarse</a>

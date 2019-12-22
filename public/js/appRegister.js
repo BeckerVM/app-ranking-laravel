@@ -12567,7 +12567,9 @@ new Vue({
     username: '',
     password: '',
     rol: 'normal',
-    error: ''
+    error: '',
+    registered: false,
+    message: ''
   },
   methods: {
     setShowInputs: function setShowInputs() {
@@ -12587,7 +12589,8 @@ new Vue({
         password: password,
         rol: rol
       }).then(function (response) {
-        console.log(response.data);
+        _this.message = response.data.message;
+        _this.registered = true;
       })["catch"](function (error) {
         _this.error = error.response.data.error;
         setTimeout(function () {
