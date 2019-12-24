@@ -2,7 +2,7 @@
   background: radial-gradient(farthest-corner at 95% 10%, #94525A, #181528);
   height: 100vh;
   width: 100%;
-  padding: 1rem;
+  padding: .4rem;
 
   &__container {
     background-color: $color-b-1;
@@ -36,12 +36,20 @@
   &__aside {
     width: 20rem;
     background-color: $color-b-3;
+
+    h4 {
+      font-size: 1.3rem;
+      color: $color-white-1;
+      padding: 2rem 1.5rem;
+    }
   }
 
   &__main {
     flex: 1;
     background-color: $color-b-1;
-    padding: .5rem;
+    padding: 1.5rem;
+    height: 57rem;
+    overflow-y: scroll;
   }
 
   &__title {
@@ -66,6 +74,152 @@
 
     a {
       color: $color-white-1;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__menu-link {
+    font-size: 1.3rem;
+    color: $color-white-1;
+    padding: 1rem 2.5rem;
+    transition: all .3s;
+  }
+
+  &__menu-link:hover {
+    background-color: $color-b-2;
+  }
+
+  &__main-header {
+    background-color: $color-b-2;
+    font-size: 1.4rem;
+    color: $color-white-1;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__main-users {
+    background-color: $color-b-3;
+  }
+
+  &__main-users-header {
+    background-color: $color-b-2;
+    padding: 1rem;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border-bottom: .2rem solid $color-red-1;
+
+    span {
+      color: $color-white-1;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__main-users-content {
+    padding: 1.5rem 1rem;
+    color: $color-white-1;
+
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__main-users-search {
+    background-color: $color-b-2;
+    width: 100%;
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    
+    button {
+      width: 3.7rem;
+      height: 3.4rem;
+      cursor: pointer;
+    }
+
+    input {
+      flex: 1;
+      padding: 0 1.5rem;
+      outline: none;
+      background-color: $color-b-2;
+      transition: all .3s;
+      border-color: rgba(36, 41, 44, 0.5);
+      border: none;
+      color: $color-white-1;
+    }
+
+    input:focus {
+      border-color: rgba(36, 41, 44, 0.5);
+      box-shadow: inset 0 0px 3px #5e6870;
+    }
+  }
+
+  &__main-users-container-table {
+    
+    span {
+      background-color: $color-b-2;
+      font-size: 1.4rem;
+      padding: 1.5rem 1rem;
+      display: inline-block;
+      border-top-left-radius: .5rem;
+      border-top-right-radius: .5rem;
+    }
+
+    table {
+      background-color: $color-b-2;
+      width: 100%;
+
+      thead th {
+        font-weight: bold;
+      }
+
+      thead tr, tbody tr {
+        display: flex;
+        font-size: 1.3rem;
+      }
+
+      thead th, tbody td {
+        flex: 1;
+        padding: 1rem .5rem;
+        text-align: start;
+        border-bottom: .1rem solid #5e6870;
+      }
+
+    }
+  }
+
+  &__main-users-pag-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 0 0;
+
+    strong {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__main-users-pag {
+    display: flex;
+
+    button {
+      padding: .8rem 1.2rem;
+      border: none;
+      background-color: $color-b-2;
+      color: $color-white-1;
+      text-align: center;
+      cursor: pointer;
+      transition: all .3s;
+      outline: none;
+    }
+
+    button:hover {
+      background-color: $color-b-1;
     }
   }
 }

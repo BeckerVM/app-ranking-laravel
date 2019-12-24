@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/js/appHeader.js": "/js/appHeader.js",
     "/js/appLogin.js": "/js/appLogin.js",
-    "/js/appRegister.js": "/js/appRegister.js"
+    "/js/appRegister.js": "/js/appRegister.js",
+    "/js/appUsers.js": "/js/appUsers.js"
 }

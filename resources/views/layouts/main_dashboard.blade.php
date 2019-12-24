@@ -24,7 +24,11 @@
         </header>
         <div class="dashboard__content">
           <aside class="dashboard__aside">
-            ASIDE
+            <h4>PANEL ADMINSTRATIVO</h4>
+            <div class="dashboard__menu">
+              <a href="{{ route('dashboard') }}" class="dashboard__menu-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+              <a href="{{ route('users') }}" class="dashboard__menu-link"><i class="fas fa-users"></i> Usuarios</a>
+            </div>
           </aside>
           <main class="dashboard__main">
             @yield('content')
@@ -32,6 +36,7 @@
         </div>
       </div>
     </div>
+    <script src="/js/app.js"></script>
     @yield('scripts')
   
 </body>

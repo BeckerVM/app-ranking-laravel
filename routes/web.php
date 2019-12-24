@@ -11,3 +11,5 @@ Route::post('/registrate', 'AuthController@registerUser');
 
 //ADMIN
 Route::get('admin/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth', 'admin');
+Route::get('admin/dashboard/usuarios', 'DashboardController@users')->name('users')->middleware('auth', 'admin');
+Route::get('api/users', 'UserController@index');

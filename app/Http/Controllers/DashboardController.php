@@ -14,4 +14,8 @@ class DashboardController extends Controller
             ]
         );
     }
+
+    public function users() {
+        return view('admin.users');
+    }
 }

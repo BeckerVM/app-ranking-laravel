@@ -3,7 +3,5 @@
 @section('title', 'Bienvenido a M&M')
 
 @section('content')
-  <div class="dashboard__main">
-    DASHBOARD
-  </div>
+  DASHBOARD
 @endsection

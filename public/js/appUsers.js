@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12550,35 +12550,99 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/app/appHeader.js":
-/*!***************************************!*\
-  !*** ./resources/js/app/appHeader.js ***!
-  \***************************************/
+/***/ "./resources/js/app/appUsers.js":
+/*!**************************************!*\
+  !*** ./resources/js/app/appUsers.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 new Vue({
-  el: '#appHeader',
+  el: '#appUsers',
   data: {
-    url: window.location.href,
-    urlLogin: 'http://localhost:3000/login',
-    urlRegister: 'http://localhost:3000/registrate'
+    users: [],
+    paginate: {
+      'total': 0,
+      'current_page': 0,
+      'per_page': 0,
+      'last_page': 0,
+      'from': 0,
+      'to': 0
+    }
+  },
+  computed: {
+    isActive: function isActive() {
+      return this.paginate.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.paginate.to) {
+        return [];
+      }
+
+      var from = this.paginate.current_page - 2;
+
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + 2 * 2;
+
+      if (to >= this.paginate.last_page) {
+        to = this.paginate.last_page;
+      }
+
+      var pagesArray = [];
+
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+
+      return pagesArray;
+    }
+  },
+  methods: {
+    getUsers: function getUsers(page) {
+      var _this = this;
+
+      var url = 'http://localhost:3000/api/users?page=' + page;
+      window.axios.get(url).then(function (response) {
+        _this.users = response.data.users.data;
+        _this.paginate = response.data.paginate;
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    },
+    changePage: function changePage(page) {
+      this.paginate.current_page = page;
+      this.getUsers(page);
+    }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    var url = 'http://localhost:3000/api/users';
+    window.axios.get(url).then(function (response) {
+      _this2.users = response.data.users.data;
+      _this2.paginate = response.data.paginate;
+    })["catch"](function (err) {
+      console.log(err.response.data);
+    });
   }
 });
-console.log('appHeader');
 
 /***/ }),
 
-/***/ 4:
-/*!*********************************************!*\
-  !*** multi ./resources/js/app/appHeader.js ***!
-  \*********************************************/
+/***/ 1:
+/*!********************************************!*\
+  !*** multi ./resources/js/app/appUsers.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appHeader.js */"./resources/js/app/appHeader.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appUsers.js */"./resources/js/app/appUsers.js");
 
 
 /***/ })
