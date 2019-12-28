@@ -8,7 +8,7 @@ use App\User;
 class UserController extends Controller
 {
     public function index(Request $request) {
-        $users = User::orderBy('created_at', 'DESC')->paginate(2);
+        $users = User::orderBy('created_at', 'DESC')->paginate(10);
 
         return response()->json([
             'paginate' => [
@@ -21,5 +21,24 @@ class UserController extends Controller
             ],
             'users' => $users
         ], 200);
+    }
+
+    public function updateState(Request $request) {
+        $data = $request->all();
+        $finded_user = User::find($data['id']);
+        $finded_user->state = $data['state'];
+        $finded_user->save();
+
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
+    public function destroy($id) {
+        User::destroy($id);
+        
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

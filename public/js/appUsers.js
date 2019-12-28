@@ -12563,6 +12563,8 @@ new Vue({
   el: '#appUsers',
   data: {
     users: [],
+    selectedUser: null,
+    newStateUser: '',
     paginate: {
       'total': 0,
       'current_page': 0,
@@ -12570,7 +12572,8 @@ new Vue({
       'last_page': 0,
       'from': 0,
       'to': 0
-    }
+    },
+    openedModal: false
   },
   computed: {
     isActive: function isActive() {
@@ -12604,10 +12607,10 @@ new Vue({
     }
   },
   methods: {
-    getUsers: function getUsers(page) {
+    getAllUsers: function getAllUsers() {
       var _this = this;
 
-      var url = 'http://localhost:3000/api/users?page=' + page;
+      var url = 'http://localhost:3000/api/users';
       window.axios.get(url).then(function (response) {
         _this.users = response.data.users.data;
         _this.paginate = response.data.paginate;
@@ -12615,21 +12618,58 @@ new Vue({
         console.log(err.response.data);
       });
     },
+    getUsers: function getUsers(page) {
+      var _this2 = this;
+
+      var url = 'http://localhost:3000/api/users?page=' + page;
+      window.axios.get(url).then(function (response) {
+        _this2.users = response.data.users.data;
+        _this2.paginate = response.data.paginate;
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    },
+    deleteUser: function deleteUser(id) {
+      var _this3 = this;
+
+      window.axios.post('http://localhost:3000/api/users/' + id).then(function () {
+        alert('Usuario eliminado correctamente.');
+
+        _this3.getAllUsers();
+      })["catch"](function (err) {
+        alert('Error al intentar eliminar el usuario.');
+      });
+    },
+    updateUser: function updateUser(id) {
+      var _this4 = this;
+
+      window.axios.post("http://localhost:3000/api/users/update_state", {
+        id: id,
+        state: this.newStateUser
+      }).then(function () {
+        _this4.openedModal = !_this4.openedModal;
+        alert('Usuario actualizado correctamente.');
+
+        _this4.getAllUsers();
+      })["catch"](function (err) {
+        alert('Error al intentar actualizar el usuario.');
+      });
+    },
+    setStateUser: function setStateUser(state) {
+      this.newStateUser = state;
+    },
     changePage: function changePage(page) {
       this.paginate.current_page = page;
       this.getUsers(page);
+    },
+    openModal: function openModal(user) {
+      this.openedModal = !this.openedModal;
+      this.selectedUser = user;
+      this.newStateUser = user.state;
     }
   },
   created: function created() {
-    var _this2 = this;
-
-    var url = 'http://localhost:3000/api/users';
-    window.axios.get(url).then(function (response) {
-      _this2.users = response.data.users.data;
-      _this2.paginate = response.data.paginate;
-    })["catch"](function (err) {
-      console.log(err.response.data);
-    });
+    this.getAllUsers();
   }
 });
 

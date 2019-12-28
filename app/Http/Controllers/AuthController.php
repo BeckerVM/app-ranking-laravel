@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TestEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Client;
+use App\Seller;
 
 class AuthController extends Controller
 {
     public function login() {
+
         return view(
             'auth.login', 
             [
@@ -19,6 +23,7 @@ class AuthController extends Controller
     }
 
     public function loginUser(Request $request) {
+        //event(new TestEvent());
         $data = $request->all();
         $user = User::where('email', $data['email'])->first();
         $response = [];
@@ -41,7 +46,7 @@ class AuthController extends Controller
                     $code = 404;
                 }
             } else {
-                $response = ['error' => 'Ups! esta cuenta no ha sido activada intenta nuevamente.'];
+                $response = ['error' => 'Ups! esta cuenta no ha sido activada o esta bloqueada intentelo mas tarde.'];
                 $code = 404;
             }
             
@@ -88,15 +93,28 @@ class AuthController extends Controller
 
             if($data['rol'] == 'normal') {
                 $new_user->state = 'activo';
-                $response['message'] = 'Ahora puede iniciar sesion';
+                $new_user->save();
+                $finded_user = User::where('email', $data['email'])->first();
+                $new_client = new Client;
+
+                $new_client->user_id = $finded_user->id;
+                $new_client->save();
+
+                $response['message'] = 'Ahora puede iniciar sesion.';
             } else {
                 $new_user->state = 'pendiente';
-                $response['message'] = 'Por favor espere un momento la activacion de su cuenta';
+                $new_user->save();
+                
+                $finded_user = User::where('email', $data['email'])->first();
+                $new_seller = new Seller;
+
+                $new_seller->user_id = $finded_user->id;
+                $new_seller->save();
+
+                $response['message'] = 'Por favor espere unos minutos e intente iniciar sesion.';
             }
 
             $response['rol'] = $data['rol'];
-            
-            $new_user->save();
         }
 
         

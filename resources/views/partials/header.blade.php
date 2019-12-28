@@ -16,7 +16,7 @@
       <a href="{{ route('logout') }}" class="header__btn-auth">Cerrar sesion</a>
     @else
       <a v-if="url === urlLogin || url !== urlLogin && url !== urlRegister" href="{{ route('register') }}" class="header__btn-auth">Registrarse</a>
-      <a v-if="url === urlRegister || url !== urlLogin && url !== urlRegister" href="{{ route('login') }}" class="header__btn-auth">Inciar sesión</a>
+      <a v-if="url === urlRegister || url !== urlLogin && url !== urlRegister" href="{{ route('login') }}" class="header__btn-auth">Iniciar sesión</a>
     @endif
   </div>
 </header>

@@ -7,6 +7,7 @@
     <div class="dashboard__main-header">
       Dashboard / Usuarios
     </div>
+
     <div class="dashboard__main-users">
       <div class="dashboard__main-users-header">
         <span>USUARIOS</span>
@@ -41,7 +42,10 @@
                 <td>@{{ user.created_at }}</td>
                 <td>@{{ user.rol }}</td>
                 <td>@{{ user.state }}</td>
-                <td>Editar Eliminar</td>
+                <td>
+                  <button @click="openModal(user)"><i class="fas fa-pencil-alt"></i></button>
+                  <button @click="deleteUser(user.id)"><i class="fas fa-trash"></i></button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -53,6 +57,29 @@
               <button @click.prevent="changePage(paginate.current_page + 1)" v-if="paginate.current_page < paginate.last_page">Siguiente</button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard__main-modal">
+      <div @click="openModal" class="dashboard__back-modal" :class="{ 'active': openedModal }">
+      </div>
+      <div class="dashboard__front-modal" :class="{ 'active': openedModal }">
+        <div class="dashboard__header-modal">
+
+        <h4 v-if="selectedUser">USUARIO: @{{ selectedUser.username }} - ESTADO: @{{ selectedUser.state }}</h4>
+        </div>
+        <div class="dashboard__body-modal">
+          <p>Estado seleccionado: @{{ newStateUser }}</p>
+          <div class="dashboard__option-state">
+            <button @click="setStateUser('pendiente')">Pendiente</button>
+            <button @click="setStateUser('activo')">Activo</button>
+            <button @click="setStateUser('bloqueado')">Bloqueado</button>
+          </div>
+        </div>
+        <div class="dashboard__footer-modal">
+          <button @click="openModal">Cerrar</button>
+          <button @click="updateUser(selectedUser.id)">Guada cambios</button>
         </div>
       </div>
     </div>

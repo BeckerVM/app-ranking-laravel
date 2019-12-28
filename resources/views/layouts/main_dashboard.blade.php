@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>M&M - @yield('title')</title>
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
@@ -16,6 +17,10 @@
           <h1 class="dashboard__title">MyM - <span>Dashboard</span></h1>
           <div class="dashboard__user">
             @if(Session::has('user'))
+              <div class="dashboard__notification-container">
+                <div class="dashboard__notification"><i class="fas fa-bell"></i><span>1</span></div>
+                <div></div>
+              </div>
               <img src="{{ Session::get('user')['profile'] }}" alt="Usuario" width="40" height="40">
               <span href="#" class="header__user">{{ Session::get('user')['username'] }}</span>
               <a href="{{ route('logout') }}"><i class="fas fa-power-off"></i></a>

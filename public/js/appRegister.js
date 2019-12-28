@@ -12592,6 +12592,7 @@ new Vue({
         _this.message = response.data.message;
         _this.registered = true;
       })["catch"](function (error) {
+        console.log(error.response.data);
         _this.error = error.response.data.error;
         setTimeout(function () {
           _this.error = '';

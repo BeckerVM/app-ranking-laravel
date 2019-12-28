@@ -12565,7 +12565,8 @@ new Vue({
     email: '',
     password: '',
     completedEmail: false,
-    error: null
+    error: null,
+    users: []
   },
   methods: {
     onPressNext: function onPressNext() {
@@ -12597,6 +12598,13 @@ new Vue({
       });
     }
   }
+  /*mounted: function() {
+      Echo.channel('test').listen('TestEvent', (e) => {
+          this.users = e.users
+          alert('Usuarios conseguidos')
+      })
+  }*/
+
 });
 
 /***/ }),

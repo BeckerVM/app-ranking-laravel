@@ -25,6 +25,7 @@ new Vue({
                 this.registered = true
             })
             .catch(error => {
+                console.log(error.response.data)
                 this.error = error.response.data.error
                 setTimeout(() => {
                     this.error = ''
