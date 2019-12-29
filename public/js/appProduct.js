@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12550,69 +12550,54 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/app/appRegister.js":
-/*!*****************************************!*\
-  !*** ./resources/js/app/appRegister.js ***!
-  \*****************************************/
+/***/ "./resources/js/app/appProduct.js":
+/*!****************************************!*\
+  !*** ./resources/js/app/appProduct.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 new Vue({
-  el: '#appRegister',
+  el: '#appProduct',
   data: {
-    showInputs: false,
-    email: '',
-    username: '',
-    password: '',
-    rol: 'normal',
-    error: '',
-    registered: false,
-    message: ''
+    product: null,
+    productImages: [],
+    productStore: null
   },
   methods: {
-    setShowInputs: function setShowInputs() {
-      this.showInputs = true;
-    },
-    submitRegisterForm: function submitRegisterForm() {
+    getProduct: function getProduct() {
       var _this = this;
 
-      var url = 'http://localhost:3000/registrate';
-      var email = this.email,
-          username = this.username,
-          password = this.password,
-          rol = this.rol;
-      window.axios.post(url, {
-        email: email,
-        username: username,
-        password: password,
-        rol: rol
+      var url = window.location.href;
+      var id = url.split('/')[5];
+      window.axios.post('http://localhost:3000/api/products/product', {
+        id: id
       }).then(function (response) {
-        _this.message = response.data.message;
-        _this.registered = true;
-      })["catch"](function (error) {
-        console.log(error.response.data);
-        _this.error = error.response.data.error;
-        setTimeout(function () {
-          _this.error = '';
-          _this.email = '';
-        }, 2000);
+        _this.product = response.data.product, _this.productImages = response.data.productImages;
+        _this.productStore = response.data.productStore;
+      })["catch"](function (err) {
+        console.log(err.response.data);
       });
     }
+  },
+  created: function created() {
+    this.getProduct();
   }
 });
+console.log('appProduct');
 
 /***/ }),
 
-/***/ 4:
-/*!***********************************************!*\
-  !*** multi ./resources/js/app/appRegister.js ***!
-  \***********************************************/
+/***/ 2:
+/*!**********************************************!*\
+  !*** multi ./resources/js/app/appProduct.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appRegister.js */"./resources/js/app/appRegister.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appProduct.js */"./resources/js/app/appProduct.js");
 
 
 /***/ })

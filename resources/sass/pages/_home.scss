@@ -42,7 +42,29 @@
 
   &__shop-item {
     background-color: $color-background-3;
-    height: 40rem;
+    display: block;
+    color: $color-white-1;
+    transition:  all .3s;
+
+    img {
+      width: 100%;
+      height: 22rem;
+      margin-bottom: .5rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+      padding: .5rem 1rem;
+    }
+
+    .price {
+      background-color: crimson;
+      
+    }
+  }
+
+  &__shop-item:hover {
+    transform: scale(1.05);
   }
 
 }

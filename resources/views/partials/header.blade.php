@@ -1,6 +1,6 @@
 <header id="appHeader" class="header @if($toggle_class)b-transparent shandow-none h-90 @endif ">
   <div class="header__container-left">
-    @if(!$toggle_class)
+    @if(!$toggle_class && Session::has('user'))
       <i class="fa fa-bars header__icon-bar"></i>
     @endif
       <a href="{{ route('home') }}"  class="header__logo">M</a>

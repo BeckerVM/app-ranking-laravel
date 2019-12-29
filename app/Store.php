@@ -15,4 +15,8 @@ class Store extends Model
     {
         return $this->belongsTo('App\Seller');
     }
+
+    public function products() {
+        return $this->hasMany('App\Product');
+    }
 }

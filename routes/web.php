@@ -1,6 +1,8 @@
 <?php
 
 Route::get('/', 'IndexController@index')->name('home');
+Route::get('/tienda/producto/{id}', 'IndexController@product')->name('product');
+Route::post('api/products/product', 'ProductController@getProductById');
 
 //AUTENTICACION
 Route::get('/login', 'AuthController@login')->name('login');
