@@ -23,10 +23,14 @@ class IndexController extends Controller {
     }
 
     public function product($id) {
+        $finded_product = Product::find($id);
+        $store = $finded_product->store;
+
         return view(
             'user.product',
             [
                 'toggle_class' => false,
+                'store' => $store
             ]
         );
     }

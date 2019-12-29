@@ -1,7 +1,7 @@
 <div class="subheader">
   <div class="subheader__superior">
     <div class="subheader__superior-content">
-      <Strong>Tienda: BeatyBigBang</Strong>
+    <Strong>Tienda: {{ $store->name }}</Strong>
       <span>Abierto: 2 años</span>
       <span>98.8% Comentarios positivos</span>
       <span>Seguidores: 200
@@ -10,7 +10,7 @@
       </span>
     </div>
     <div class="subheader__mid">
-
+      <h2>Tienda {{ $store->name }}</h2>
     </div>
     <div class="subheader__inferior">
       <nav class="subheader__menu">
