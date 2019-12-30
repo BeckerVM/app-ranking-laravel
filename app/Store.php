@@ -19,4 +19,9 @@ class Store extends Model
     public function products() {
         return $this->hasMany('App\Product');
     }
+
+    public function images()
+    {
+        return $this->hasMany('App\GalleryShop');
+    }
 }

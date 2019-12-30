@@ -1,16 +1,13 @@
 .product {
     background-color:  $color-background-3;
-    padding-top: 4rem;
+    padding: 4rem 8rem;
     
     &__container {
-        width: 90rem;
-        margin: 0 auto;
         display: flex;
     }
 
     &__container-description {
-        width: 90rem;
-        margin: 0 auto;
+        width: 98.9rem;
     }
 
     &__left {
@@ -30,6 +27,12 @@
     &__right {
         flex: 1;
         padding: 1.5rem;
+    }
+
+    &__center {
+        width: 20rem;
+        padding: 1.5rem;
+        background-color: crimson;
     }
 
     &__description {
@@ -120,21 +123,21 @@
     }
 
     &__options {
-        background-color: $color-white-1;
+        background-color: $color-background-2;
         display: flex;
 
         a {
             font-size: 1.4rem;
             flex: 1;
-            padding: 1rem 0;
-            color: $color-background-1;
+            padding: .5rem 0;
+            color: $color-white-1;
             font-weight: bold;
             text-align: center;
             transition: all .5s;
         }
 
         a:hover {
-            background-color: #ccc;
+            background-color: $color-background-1;
         }
 
     }
@@ -147,6 +150,83 @@
         p {
             text-align: justify;
         }
+    }
+
+    &__description2 {
+
+    }
+
+    &__commentaries {
+        color: $color-white-1;
+
+        h5 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__valoration-container {
+        display: flex;
+        align-items: center;
+        border-bottom: .1rem solid $color-background-1;
+        padding-bottom: 1rem;
+    }
+
+    &__valoration-left {
+        width: 45%;
+    }
+
+    &__valoration-right {
+        padding: 0 2rem;
+    }
+
+    &__valoration {
+        display: flex;
+        align-items: center;
+        margin-bottom: .5rem;
+
+        span {
+            width: 8rem;
+        }
+    }
+
+    &__valoration-line {
+        width: 16rem;
+        background-color: #f1f1f1;
+        height: .2rem;
+        border-radius: .1rem;
+        overflow: hidden;
+        margin-right: 1.5rem;
+    }
+
+    &__valoration-line-color {
+        height: 100%;
+        background-color: crimson;
+    }
+
+    &__comentary {
+        display: flex;
+        padding: 1.5rem 0;
+        border-bottom: .1rem solid $color-background-1;
+    }
+
+    &__comentary-left {
+        margin-right: 1.5rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        img {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__comentary-text {
+        text-align: justify;
     }
 
 }

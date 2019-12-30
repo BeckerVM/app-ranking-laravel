@@ -10,12 +10,12 @@
       </span>
     </div>
     <div class="subheader__mid">
-      <h2>Tienda {{ $store->name }}</h2>
+      <h2>{{ $store->name }}</h2>
     </div>
     <div class="subheader__inferior">
       <nav class="subheader__menu">
-        <a href="#">Pagina principal</a>
-        <a href="#">Productos</a>
+        <a href="{{ route('shop', ['id' => $store->id]) }}">Pagina principal</a>
+        <a href="{{ route('products', ['id' => $store->id]) }}">Productos</a>
         <a href="#">Mas vendidos</a>
         <a href="#">Comentarios</a>
       </nav>

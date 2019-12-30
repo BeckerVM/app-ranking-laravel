@@ -10,6 +10,7 @@ class IndexController extends Controller {
     
     public function index() {
         $new_products = Product::orderBy('created_at', 'desc')->take(10)->get();
+        $stores = Store::all();
 
         return view(
             'home',
@@ -17,7 +18,8 @@ class IndexController extends Controller {
                 'toggle_class' => false, 
                 'login' => false, 
                 'auth' => true,
-                'new_products' => $new_products
+                'new_products' => $new_products,
+                'stores' => $stores
             ]
         );
     }
@@ -31,6 +33,34 @@ class IndexController extends Controller {
             [
                 'toggle_class' => false,
                 'store' => $store
+            ]
+        );
+    }
+
+    public function products($id) {
+        $store = Store::find($id);
+        $products = $store->products;
+
+        return view(
+            'user.products',
+            [
+                'toggle_class' => false,
+                'store' => $store,
+                'products' => $products
+            ]
+        );
+    }
+
+    public function store($id) {
+        $store = Store::find($id);
+        $products = $store->products;
+
+        return view(
+            'user.deal',
+            [
+                'toggle_class' => false,
+                'store' => $store,
+                'products' => $products
             ]
         );
     }

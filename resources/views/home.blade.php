@@ -15,13 +15,19 @@
     </nav>
     <h3 class="text-title">Tiendas</h3>
     <div class="home__shop">
-      @for ($i = 0; $i < 8; $i++)
+      @foreach ($stores as $store)
         <div class="home__shop-col">
           <div class="home__shop-item">
-            ITEM
+            <img src="{{ $store->images[0]->img_url }}" alt="Tienda">
+            <div class="home__shop-name-container">
+              <div class="home__shop-name">
+                {{ $store->name }}
+              </div>
+              <a href="{{ route('shop', ['id' => $store->id]) }}">Visitar Tienda</a>
+            </div>
           </div>
         </div>
-      @endfor
+      @endforeach
     </div>
     <h3 class="text-title mt-30">Descuentos</h3>
     <div class="home__shop">

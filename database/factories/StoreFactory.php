@@ -7,10 +7,10 @@ use Faker\Generator as Faker;
 
 $factory->define(Store::class, function (Faker $faker) {
     return [
-        'name' => $faker->company,
-        'phone' => '983876532',
-        'description' => $faker->sentence($nbWords = 20, $variableNbWords = true),
-        'seller_id' => 1,
+        'name' => 'Azaleia',
+        'phone' => '98345623',
+        'description' => $faker->sentence($nbWords = 30, $variableNbWords = true),
+        'seller_id' => 3,
         'category_id' => 1
     ];
 });

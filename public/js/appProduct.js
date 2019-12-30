@@ -12564,7 +12564,8 @@ new Vue({
   data: {
     product: null,
     productImages: [],
-    productStore: null
+    productStore: null,
+    selectedOption: 'commentaries'
   },
   methods: {
     getProduct: function getProduct() {
@@ -12580,6 +12581,9 @@ new Vue({
       })["catch"](function (err) {
         console.log(err.response.data);
       });
+    },
+    selectOption: function selectOption(option) {
+      this.selectedOption = option;
     }
   },
   created: function created() {

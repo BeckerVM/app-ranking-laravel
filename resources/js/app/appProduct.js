@@ -5,7 +5,8 @@ new Vue({
   data: {
     product: null,
     productImages: [],
-    productStore: null
+    productStore: null,
+    selectedOption: 'commentaries'
   },
   methods: {
     getProduct: function() {
@@ -20,6 +21,9 @@ new Vue({
       .catch(err => {
         console.log(err.response.data)
       })
+    },
+    selectOption: function(option) {
+      this.selectedOption = option
     }
   },
   created: function() {
