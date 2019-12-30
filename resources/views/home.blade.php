@@ -5,6 +5,7 @@
 @section('content')
   @include('partials.header')
   <div class="banner">
+    <h2>TOP EN TIENDAS</h2>
   </div>
   <div class="home__container">
     <nav class="home__menu">

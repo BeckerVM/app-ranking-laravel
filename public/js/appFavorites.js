@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12550,73 +12550,30 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/app/appLogin.js":
-/*!**************************************!*\
-  !*** ./resources/js/app/appLogin.js ***!
-  \**************************************/
+/***/ "./resources/js/app/appFavorites.js":
+/*!******************************************!*\
+  !*** ./resources/js/app/appFavorites.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 new Vue({
-  el: '#appLogin',
-  data: {
-    email: '',
-    password: '',
-    completedEmail: false,
-    error: null,
-    users: []
-  },
-  methods: {
-    onPressNext: function onPressNext() {
-      if (this.email !== '') {
-        this.completedEmail = true;
-      }
-    },
-    submitLoginForm: function submitLoginForm() {
-      var _this = this;
-
-      var url = 'http://localhost:3000/login';
-      window.axios.post(url, {
-        email: this.email,
-        password: this.password
-      }).then(function (response) {
-        if (response.data.rol === 'normal' || response.data.rol === 'comerciante') {
-          window.location.href = "http://localhost:3000";
-        } else {
-          window.location.href = "http://localhost:3000/admin/dashboard";
-        }
-      })["catch"](function (err) {
-        _this.error = err.response.data.error;
-        setTimeout(function () {
-          _this.error = null;
-          _this.email = '';
-          _this.password = '';
-          _this.completedEmail = false;
-        }, 2000);
-      });
-    }
-  }
-  /*mounted: function() {
-      Echo.channel('test').listen('TestEvent', (e) => {
-          this.users = e.users
-          alert('Usuarios conseguidos')
-      })
-  }*/
-
+  el: '#appFavorites',
+  data: {}
 });
 
 /***/ }),
 
-/***/ 4:
-/*!********************************************!*\
-  !*** multi ./resources/js/app/appLogin.js ***!
-  \********************************************/
+/***/ 2:
+/*!************************************************!*\
+  !*** multi ./resources/js/app/appFavorites.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appLogin.js */"./resources/js/app/appLogin.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appFavorites.js */"./resources/js/app/appFavorites.js");
 
 
 /***/ })

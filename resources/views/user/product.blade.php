@@ -42,7 +42,10 @@
                 </div>
             </div>
             <div class="product__center">
-                PRODUCTOS RELACIONADOS
+                <span>Recomendado para ti</span>
+                <div class="product__product" v-for="i in 3" :key="i">
+                    <img width="133" height="133" src="https://ae01.alicdn.com/kf/H87a5b2e7430a484bad2f754a852b0148X.jpg_220x220q90.jpg_.webp" alt="Product">
+                </div>
             </div>
         </div>
         <div class="product__container-description" v-if="product !== null">

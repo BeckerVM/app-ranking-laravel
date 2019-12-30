@@ -1,6 +1,17 @@
 .banner {
   margin-top: 7rem;
-  background-color: $color-background-3;
+  background: url('https://scontent.faqp2-1.fna.fbcdn.net/v/t1.15752-9/81124033_2880415228649288_7112942712394874880_n.jpg?_nc_cat=111&_nc_ohc=KZrXA2Q-hNEAQkWeOjFuhJ1fLHmKM1AOhlxoG84-9ixsjM1_bJtGm3Rdw&_nc_ht=scontent.faqp2-1.fna&oh=fdc3cf15d1c50013ce0c0b921c41245f&oe=5EAE0D3D');
   height: 30rem;
   width: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  h2 {
+    color: $color-white-1;
+    font-size: 4rem;
+    position: absolute;
+    top: 3rem;
+    left: 7.5rem;
+  }
 }

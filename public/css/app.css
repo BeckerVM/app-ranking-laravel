@@ -81,9 +81,20 @@ a {
 
 .banner {
   margin-top: 7rem;
-  background-color: #121212;
+  background: url("https://scontent.faqp2-1.fna.fbcdn.net/v/t1.15752-9/81124033_2880415228649288_7112942712394874880_n.jpg?_nc_cat=111&_nc_ohc=KZrXA2Q-hNEAQkWeOjFuhJ1fLHmKM1AOhlxoG84-9ixsjM1_bJtGm3Rdw&_nc_ht=scontent.faqp2-1.fna&oh=fdc3cf15d1c50013ce0c0b921c41245f&oe=5EAE0D3D");
   height: 30rem;
   width: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.banner h2 {
+  color: #fff;
+  font-size: 4rem;
+  position: absolute;
+  top: 3rem;
+  left: 7.5rem;
 }
 
 .header {
@@ -143,7 +154,7 @@ a {
 }
 
 .header__icon-bar:hover {
-  background-color: crimson;
+  background-color: #353c42;
 }
 
 .header__logo {
@@ -204,6 +215,48 @@ a {
   font-size: 1.4rem;
   color: #fff;
   margin-right: 1rem;
+}
+
+.header__aside {
+  background-color: #282828;
+  position: fixed;
+  top: 7rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.header__aside nav {
+  display: -webkit-box;
+  display: flex;
+}
+
+.header__aside a {
+  padding: 1rem 1.5rem;
+  color: #fff;
+  font-size: 1.2rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.header__aside a:hover {
+  background-color: crimson;
+}
+
+.header__aside i {
+  width: 1.5rem;
+  margin-right: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.header__aside.active {
+  visibility: visible;
+  opacity: 1;
 }
 
 .subheader {
@@ -369,6 +422,12 @@ a {
   color: #fff;
   margin-bottom: 1rem;
   font-size: 1.3rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.home__shop-name-container a:hover {
+  background-color: #e72148;
 }
 
 .home__shop-name {
@@ -630,7 +689,20 @@ a {
 .product__center {
   width: 20rem;
   padding: 1.5rem;
-  background-color: crimson;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.product__center span {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #fff;
 }
 
 .product__description {
@@ -1250,5 +1322,118 @@ a {
 .dashboard__footer-modal button:nth-child(2):hover {
   background-color: #2260e7;
   margin-left: 1.5rem;
+}
+
+.favorites {
+  margin-top: 7rem;
+  background-color: #1f1f1f;
+  color: #fff;
+  padding-top: 2rem;
+}
+
+.favorites h4 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.favorites__shop {
+  width: 110rem;
+  margin: 0 auto;
+}
+
+.favorites__search-container {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background-color: #282828;
+}
+
+.favorites__search-container input {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  width: 30rem;
+  border: none;
+  outline: none;
+}
+
+.favorites__search-container button {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.favorites__store {
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 1.5rem;
+  background-color: #282828;
+}
+
+.favorites__store-left {
+  width: 20rem;
+  padding: 1.5rem 0 5rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  border-right: 0.1rem solid #282828;
+}
+
+.favorites__store-left h5 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.favorites__store-left p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.favorites__link-store {
+  background-color: crimson;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.favorites__link-store:hover {
+  background-color: #e71d46;
+}
+
+.favorites__link-trash i {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.favorites__store-right {
+  -webkit-box-flex: 1;
+          flex: 1;
+  padding: 1.5rem 2rem 5rem;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.favorites__product {
+  border: 0.1rem solid #1f1f1f;
+  box-shadow: 0.1rem 0.1rem 0.5rem #1f1f1f;
+  padding: 1rem;
+}
+
+.favorites__product p {
+  color: crimson;
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 

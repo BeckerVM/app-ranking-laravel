@@ -78,6 +78,11 @@
       color: $color-white-1;
       margin-bottom: 1rem;
       font-size: 1.3rem;
+      transition: all .3s;
+    }
+
+    a:hover {
+      background-color: rgb(231, 33, 72);
     }
   }
 

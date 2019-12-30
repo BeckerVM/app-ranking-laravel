@@ -43,7 +43,7 @@
   }
 
   &__icon-bar:hover {
-    background-color: $color-red-1;
+    background-color: $color-b-1;
   }
 
   &__logo {
@@ -101,5 +101,43 @@
     font-size: 1.4rem;
     color: $color-white-1;
     margin-right: 1rem;
+  }
+
+  &__aside {
+    background-color: $color-background-1;
+    position: fixed;
+    top: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .3s;
+    visibility: hidden;
+    opacity: 0;
+
+    nav {
+      display: flex;
+    }
+
+    a {
+      padding: 1rem 1.5rem;
+      color: $color-white-1;
+      font-size: 1.2rem;
+      transition: all .3s;
+    }
+
+    a:hover {
+      background-color: crimson;
+    }
+
+    i {
+      width: 1.5rem;
+      margin-right: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__aside.active {
+    visibility: visible;
+    opacity: 1;
   }
 }
