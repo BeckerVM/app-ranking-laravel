@@ -13,7 +13,7 @@ class IndexController extends Controller {
         $stores = Store::all();
 
         return view(
-            'user.favorites',
+            'user.profile',
             [
                 'toggle_class' => false, 
                 'login' => false, 

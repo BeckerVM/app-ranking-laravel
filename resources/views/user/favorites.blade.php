@@ -26,7 +26,7 @@
           <div class="favorites__store-right">
             <a href="#" class="favorites__product" v-for="i in 5" :key="i">
               <img width="142" height="142" src="https://ae01.alicdn.com/kf/HTB1VQPqayDxK1RjSsphq6zHrpXaL/Original-New-Arrival-Adidas-CF-ALL-COURT-Men-s-Tennis-Shoes-Sneakers.jpg" alt="">
-              <p>S/. 99.99 / Precio</p>
+              <p>S/. 99.99 / <span>Precio</span></p>
             </a>
           </div>
         </div>

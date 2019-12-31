@@ -1370,6 +1370,10 @@ a {
   background-color: #282828;
 }
 
+.favorites__store:last-child {
+  margin-bottom: 0;
+}
+
 .favorites__store-left {
   width: 20rem;
   padding: 1.5rem 0 5rem;
@@ -1435,5 +1439,109 @@ a {
   color: crimson;
   font-weight: bold;
   font-size: 1.3rem;
+}
+
+.favorites__product span {
+  color: #fff;
+}
+
+.profile {
+  padding-top: 7rem;
+  background-color: #121212;
+  color: #fff;
+}
+
+.profile__container {
+  width: 110rem;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: flex;
+  padding-top: 2rem;
+}
+
+.profile__left {
+  width: 25%;
+  padding: 0 1rem;
+}
+
+.profile__right {
+  -webkit-box-flex: 1;
+          flex: 1;
+  padding: 0 1rem;
+}
+
+.profile__nav {
+  background-color: #1f1f1f;
+  padding: 1rem;
+  padding-bottom: 3rem;
+}
+
+.profile__nav h5 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.profile__menu {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.profile__menu a {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.profile__profile {
+  background-color: #1f1f1f;
+  margin-bottom: 1.5rem;
+}
+
+.profile__user {
+  padding: 2rem 1.5rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  border-bottom: 0.1rem solid #121212;
+}
+
+.profile__user span {
+  font-size: 1.3rem;
+}
+
+.profile__user img {
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  margin-right: 1.5rem;
+}
+
+.profile__options {
+  padding: 2rem 1.5rem;
+  display: -webkit-box;
+  display: flex;
+}
+
+.profile__option {
+  border-right: 0.1rem solid #121212;
+  -webkit-box-flex: 1;
+          flex: 1;
+  font-size: 1.3rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  padding: 0 1.5rem;
+}
+
+.profile__option:nth-child(3) {
+  border-right: 0;
 }
 

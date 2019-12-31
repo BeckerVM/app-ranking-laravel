@@ -1,0 +1,87 @@
+.profile {
+  padding-top: 7rem;
+  background-color: $color-background-3;
+  color: $color-white-1;
+  
+  &__container {
+    width: 110rem;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 2rem;
+  }
+
+  &__left {
+    width: 25%;
+    padding: 0 1rem;
+  }
+
+  &__right {
+    flex: 1;
+    padding: 0 1rem;
+  }
+
+  &__nav {
+    background-color: $color-background-2;
+    padding: 1rem;
+    padding-bottom: 3rem;
+
+    h5 {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: $color-white-1;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__profile {
+    background-color: $color-background-2;
+    margin-bottom: 1.5rem;
+  }
+
+  &__user {
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: .1rem solid $color-background-3;
+    
+    span {
+      font-size: 1.3rem;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 7rem;
+      height: 7rem;
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__options {
+    padding: 2rem 1.5rem;
+    display: flex;
+  }
+
+  &__option {
+    border-right: .1rem solid $color-background-3;
+    flex: 1;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1.5rem;
+  }
+
+  &__option:nth-child(3) {
+    border-right: 0;
+  }
+}
+

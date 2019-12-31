@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12550,69 +12550,31 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/app/appRegister.js":
-/*!*****************************************!*\
-  !*** ./resources/js/app/appRegister.js ***!
-  \*****************************************/
+/***/ "./resources/js/app/appProfile.js":
+/*!****************************************!*\
+  !*** ./resources/js/app/appProfile.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 new Vue({
-  el: '#appRegister',
-  data: {
-    showInputs: false,
-    email: '',
-    username: '',
-    password: '',
-    rol: 'normal',
-    error: '',
-    registered: false,
-    message: ''
-  },
-  methods: {
-    setShowInputs: function setShowInputs() {
-      this.showInputs = true;
-    },
-    submitRegisterForm: function submitRegisterForm() {
-      var _this = this;
-
-      var url = 'http://localhost:3000/registrate';
-      var email = this.email,
-          username = this.username,
-          password = this.password,
-          rol = this.rol;
-      window.axios.post(url, {
-        email: email,
-        username: username,
-        password: password,
-        rol: rol
-      }).then(function (response) {
-        _this.message = response.data.message;
-        _this.registered = true;
-      })["catch"](function (error) {
-        console.log(error.response.data);
-        _this.error = error.response.data.error;
-        setTimeout(function () {
-          _this.error = '';
-          _this.email = '';
-        }, 2000);
-      });
-    }
-  }
+  el: '#appProfile',
+  data: {}
 });
+console.log('appProfile');
 
 /***/ }),
 
-/***/ 6:
-/*!***********************************************!*\
-  !*** multi ./resources/js/app/appRegister.js ***!
-  \***********************************************/
+/***/ 3:
+/*!**********************************************!*\
+  !*** multi ./resources/js/app/appProfile.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appRegister.js */"./resources/js/app/appRegister.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\app-ranking\resources\js\app\appProfile.js */"./resources/js/app/appProfile.js");
 
 
 /***/ })

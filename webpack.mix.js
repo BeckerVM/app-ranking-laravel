@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app/app.js', 'public/js')
    .js('resources/js/app/appUsers.js', 'public/js')
    .js('resources/js/app/appFavorites.js', 'public/js')
+   .js('resources/js/app/appProfile.js', 'public/js')
    .js('resources/js/app/appProduct.js', 'public/js')
    .js('resources/js/app/appLogin.js', 'public/js')
    .js('resources/js/app/appRegister.js', 'public/js')
