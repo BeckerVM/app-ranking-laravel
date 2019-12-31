@@ -37,7 +37,24 @@
             </div>
           </div>
           <div class="profile__stores">
-            STORES
+            <div class="favorites">
+                <h4>MIS TIENDAS FAVORITAS</h4>
+                <div class="favorites__stores">
+                  <div class="favorites__store" v-for="i in 3" :key="i">
+                    <div class="favorites__store-left">
+                      <h5>Tienda: Bing Bang</h5>
+                      <p>Ropas</p>
+                      <a href="#" class="favorites__link-store">Ver Tienda</a>
+                    </div>
+                    <div class="favorites__store-right">
+                      <a href="#" class="favorites__product" v-for="i in 3" :key="i">
+                        <img width="142" height="142" src="https://ae01.alicdn.com/kf/HTB1VQPqayDxK1RjSsphq6zHrpXaL/Original-New-Arrival-Adidas-CF-ALL-COURT-Men-s-Tennis-Shoes-Sneakers.jpg" alt="">
+                        <p>S/. 99.99 / <span>Precio</span></p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            </div>
           </div>
         </div>
       </div>
