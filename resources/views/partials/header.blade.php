@@ -22,7 +22,7 @@
   <aside class="header__aside" :class="{ 'active': openedModal }">
     <nav>
       <a href=""><i class="fas fa-user-circle"></i> MI CUENTA</a>
-      <a href=""><i class="fas fa-store"></i> MIS TIENDAS FAVORITAS</a>
+      <a href="{{ route('favorites') }}"><i class="fas fa-store"></i> MIS TIENDAS FAVORITAS</a>
       <a href=""><i class="fas fa-gift"></i> MIS DESEOS</a>
     </nav>
   </aside>

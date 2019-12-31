@@ -38,7 +38,7 @@
           </div>
           <div class="profile__stores">
             <div class="favorites">
-                <h4>MIS TIENDAS FAVORITAS</h4>
+                <h4 class="pr-2">MIS TIENDAS FAVORITAS</h4>
                 <div class="favorites__stores">
                   <div class="favorites__store" v-for="i in 3" :key="i">
                     <div class="favorites__store-left">

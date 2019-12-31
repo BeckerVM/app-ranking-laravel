@@ -28,6 +28,7 @@ html {
 body {
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
+  background-color: #282828;
 }
 
 a {
@@ -77,6 +78,10 @@ a {
 .j-c-between {
   -webkit-box-pack: justify;
           justify-content: space-between;
+}
+
+.pr-2 {
+  padding: 2rem;
 }
 
 .banner {

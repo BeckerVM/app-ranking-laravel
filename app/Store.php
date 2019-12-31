@@ -24,4 +24,9 @@ class Store extends Model
     {
         return $this->hasMany('App\GalleryShop');
     }
+
+    public function favorites() {
+
+        return $this->hasMany('App\Favorite');
+    }
 }

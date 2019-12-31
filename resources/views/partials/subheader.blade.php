@@ -5,7 +5,7 @@
       <span>Abierto: 2 años</span>
       <span>98.8% Comentarios positivos</span>
       <span>Seguidores: 200
-        <a href="#" class="subheader__btn">Seguir</a>
+        <a href="{{ route('save-favorite', ['store_id' => $store->id ]) }}" class="subheader__btn">Seguir</a>
         </div>
       </span>
     </div>

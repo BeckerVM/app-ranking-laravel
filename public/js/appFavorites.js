@@ -12561,8 +12561,30 @@ var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"
 
 new Vue({
   el: '#appFavorites',
-  data: {}
+  data: {
+    userId: '',
+    stores: []
+  },
+  methods: {
+    getFavorites: function getFavorites() {
+      var _this = this;
+
+      var url = "http://localhost:3000/api/favorites";
+      window.axios.post(url, {
+        id: this.userId
+      }).then(function (response) {
+        _this.stores = response.data.stores;
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    }
+  },
+  created: function created() {
+    this.userId = document.getElementById('user').value;
+    this.getFavorites();
+  }
 });
+console.log('APP FAVORITES');
 
 /***/ }),
 

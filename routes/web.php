@@ -5,6 +5,9 @@ Route::get('/tienda/producto/{id}', 'IndexController@product')->name('product');
 Route::get('/tienda/{id}', 'IndexController@store')->name('shop');
 Route::get('/tienda/{id}/productos', 'IndexController@products')->name('products');
 Route::post('api/products/product', 'ProductController@getProductById');
+Route::get('/mis-favoritos', 'FavoriteController@index')->name('favorites');
+Route::get('/add-favorites/{store_id}', 'FavoriteController@save')->name('save-favorite');
+Route::post('/api/favorites', 'FavoriteController@get');
 
 //AUTENTICACION
 Route::get('/login', 'AuthController@login')->name('login');
