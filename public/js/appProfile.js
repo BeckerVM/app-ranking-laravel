@@ -12561,7 +12561,48 @@ var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"
 
 new Vue({
   el: '#appProfile',
-  data: {}
+  data: {
+    option: '',
+    loading: true,
+    userId: '',
+    stores: []
+  },
+  methods: {
+    getDataAccount: function getDataAccount() {
+      var _this = this;
+
+      var url = "http://localhost:3000/api/account";
+      window.axios.post(url, {
+        id: this.userId
+      }).then(function (response) {
+        setTimeout(function () {
+          _this.stores = response.data.stores;
+          _this.loading = false;
+          _this.option = 'stores';
+        }, 1000);
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    },
+    setOption: function setOption(option) {
+      var _this2 = this;
+
+      if (this.option === option) {
+        return;
+      }
+
+      this.loading = true;
+      this.option = '';
+      setTimeout(function () {
+        _this2.loading = false;
+        _this2.option = option;
+      }, 1000);
+    }
+  },
+  created: function created() {
+    this.userId = document.getElementById('user').value;
+    this.getDataAccount();
+  }
 });
 console.log('appProfile');
 

@@ -22,6 +22,16 @@ class AuthController extends Controller
         );
     }
 
+    public function account() {
+        return view(
+            'user.profile', 
+            [
+                'toggle_class' => false, 
+                'login' => true, 
+            ]
+        );
+    }
+
     public function loginUser(Request $request) {
         //event(new TestEvent());
         $data = $request->all();

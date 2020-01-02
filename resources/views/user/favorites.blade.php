@@ -19,8 +19,8 @@
         <div class="favorites__store" v-for="store in stores" :key="store.store.id">
           <div class="favorites__store-left">
           <h5>Tienda: @{{ store.store.name }}</h5>
-            <p>Ropas</p>
-            <a href="#" class="favorites__link-store">Ver Tienda</a>
+            <p>Llamadas: @{{ store.store.phone }}</p>
+            <a :href="'http://localhost:3000/tienda/' + store.store.id" class="favorites__link-store">Ver Tienda</a>
             <a href="#" class="favorites__link-trash"><i class="fas fa-trash"></i></a>
           </div>
           <div class="favorites__store-right">
@@ -31,6 +31,7 @@
           </div>
         </div>
       </div>
+      <div class="loader" v-if="loading">Loading...</div>
     </div>
   </div>
 @endsection

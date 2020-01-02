@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Store;
+use App\User;
 use App\Product;
+use App\Favorite;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller {
@@ -24,43 +26,55 @@ class IndexController extends Controller {
         );
     }
 
-    public function product($id) {
+    public function product($id, Request $request) {
         $finded_product = Product::find($id);
         $store = $finded_product->store;
+        $user = $request->session()->get('user');
+        $client = User::find($user['id'])->client;
+        $following = Favorite::where('store_id', $store->id)->where('client_id', $client->id)->first();
 
         return view(
             'user.product',
             [
                 'toggle_class' => false,
-                'store' => $store
+                'store' => $store,
+                'following' => $following
             ]
         );
     }
 
-    public function products($id) {
+    public function products($id, Request $request) {
         $store = Store::find($id);
         $products = $store->products;
+        $user = $request->session()->get('user');
+        $client = User::find($user['id'])->client;
+        $following = Favorite::where('store_id', $store->id)->where('client_id', $client->id)->first();
 
         return view(
             'user.products',
             [
                 'toggle_class' => false,
                 'store' => $store,
-                'products' => $products
+                'products' => $products,
+                'following' => $following
             ]
         );
     }
 
-    public function store($id) {
+    public function store($id, Request $request) {
         $store = Store::find($id);
         $products = $store->products;
+        $user = $request->session()->get('user');
+        $client = User::find($user['id'])->client;
+        $following = Favorite::where('store_id', $store->id)->where('client_id', $client->id)->first();
 
         return view(
             'user.deal',
             [
                 'toggle_class' => false,
                 'store' => $store,
-                'products' => $products
+                'products' => $products,
+                'following' => $following
             ]
         );
     }

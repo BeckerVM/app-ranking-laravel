@@ -1,5 +1,5 @@
 .product {
-    background-color:  $color-background-3;
+    background-color:  $color-background-1;
     padding: 4rem 8rem;
     
     &__container {
@@ -108,7 +108,7 @@
     }
 
     &__other:hover {
-        border: .2rem solid $color-background-2;
+        border: .2rem solid crimson;
     }
 
     &__oplus {
@@ -136,7 +136,7 @@
     }
 
     &__options {
-        background-color: $color-background-2;
+        background-color: $color-background-3;
         display: flex;
 
         a {
@@ -150,7 +150,7 @@
         }
 
         a:hover {
-            background-color: $color-background-1;
+            background-color: crimson;
         }
 
     }
@@ -242,4 +242,7 @@
         text-align: justify;
     }
 
+    &__container-description {
+        background-color: $color-background-2;
+    }
 }

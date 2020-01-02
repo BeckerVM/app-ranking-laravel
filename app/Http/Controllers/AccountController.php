@@ -3,42 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Favorite;
 use App\User;
 use App\Product;
 
-class FavoriteController extends Controller
+class AccountController extends Controller
 {
-    public function index() {
-        return view(
-            'user.favorites',
-            [
-                'toggle_class' => false
-            ]
-        );
-    }
-
-    public function save($store_id, Request $request) {
-        $user = $request->session()->get('user');
-        $client = User::find($user['id'])->client;
-        
-        $new_favorite = new Favorite;
-        $new_favorite->store_id = $store_id;
-        $new_favorite->client_id = $client->id;
-        $new_favorite->save();
-
-        return redirect()->route('shop', [ 'id' => $store_id]);
-    }
-
-    public function delete($store_id, Request $request) {
-        $user = $request->session()->get('user');
-        $client = User::find($user['id'])->client;
-
-        $following = Favorite::where('store_id', $store_id)->where('client_id', $client->id)->delete();
-
-        return redirect()->route('shop', [ 'id' => $store_id]);
-    }
-
     public function get(Request $request) {
         $user = $request->session()->get('user');
         $client = User::find($user['id'])->client;
@@ -50,7 +21,7 @@ class FavoriteController extends Controller
             
             $products = Product::where('store_id', $favorite->store->id)
             ->orderBy('created_at', 'desc')
-            ->take(5)
+            ->take(3)
             ->get();
 
             $prod = array();

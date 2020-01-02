@@ -12563,7 +12563,8 @@ new Vue({
   el: '#appFavorites',
   data: {
     userId: '',
-    stores: []
+    stores: [],
+    loading: true
   },
   methods: {
     getFavorites: function getFavorites() {
@@ -12573,7 +12574,10 @@ new Vue({
       window.axios.post(url, {
         id: this.userId
       }).then(function (response) {
-        _this.stores = response.data.stores;
+        setTimeout(function () {
+          _this.stores = response.data.stores;
+          _this.loading = false;
+        }, 1000);
       })["catch"](function (err) {
         console.log(err.response.data);
       });

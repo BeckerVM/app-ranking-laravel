@@ -5,7 +5,13 @@
       <span>Abierto: 2 años</span>
       <span>98.8% Comentarios positivos</span>
       <span>Seguidores: 200
-        <a href="{{ route('save-favorite', ['store_id' => $store->id ]) }}" class="subheader__btn">Seguir</a>
+        @if(Session::has('user'))
+          @if(!$following)
+            <a href="{{ route('save-favorite', ['store_id' => $store->id ]) }}" class="subheader__btn">Seguir</a>
+          @else
+          <a href="{{ route('delete-favorite', ['store_id' => $store->id ]) }}" class="subheader__btn">No seguir</a>
+          @endif
+        @endif
         </div>
       </span>
     </div>
