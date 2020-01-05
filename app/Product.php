@@ -14,4 +14,8 @@ class Product extends Model
     public function store() {
         return $this->belongsTo('App\Store');
     }
+
+    public function wishes() {
+        return $this->hasMany('App\Wish');
+    }
 }

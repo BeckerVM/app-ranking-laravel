@@ -114,6 +114,7 @@
     &__oplus {
         display: flex;
         flex-wrap: wrap;
+        margin-bottom: 5rem;
     }
 
     &__plus {
@@ -244,5 +245,15 @@
 
     &__container-description {
         background-color: $color-background-2;
+    }
+
+    &__wishe {
+        a {
+            background-color: crimson;
+            color: #fff;
+            font-size: 1.3rem;
+            padding: 1rem 1.5rem;
+            border-radius: .5rem;
+        }
     }
 }

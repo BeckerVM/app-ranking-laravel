@@ -15,4 +15,9 @@ class Client extends Model
 
         return $this->hasMany('App\Favorite');
     }
+
+    public function wishes() {
+        return $this->hasMany('App\Wish');
+    }
+
 }

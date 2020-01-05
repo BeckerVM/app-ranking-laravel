@@ -12565,7 +12565,9 @@ new Vue({
     product: null,
     productImages: [],
     productStore: null,
-    selectedOption: 'commentaries'
+    selectedOption: 'commentaries',
+    userId: null,
+    wish: null
   },
   methods: {
     getProduct: function getProduct() {
@@ -12574,10 +12576,24 @@ new Vue({
       var url = window.location.href;
       var id = url.split('/')[5];
       window.axios.post('http://localhost:3000/api/products/product', {
-        id: id
+        id: id,
+        userId: this.userId
       }).then(function (response) {
         _this.product = response.data.product, _this.productImages = response.data.productImages;
         _this.productStore = response.data.productStore;
+        _this.wish = response.data.wish;
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    },
+    saveWish: function saveWish() {
+      var _this2 = this;
+
+      window.axios.post('http://localhost:3000/api/wish/save', {
+        userId: this.userId,
+        productId: this.product.id
+      }).then(function (response) {
+        _this2.wish = response.data;
       })["catch"](function (err) {
         console.log(err.response.data);
       });
@@ -12587,10 +12603,10 @@ new Vue({
     }
   },
   created: function created() {
+    this.userId = document.getElementById('user').value;
     this.getProduct();
   }
 });
-console.log('appProduct');
 
 /***/ }),
 

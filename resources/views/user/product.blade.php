@@ -6,6 +6,7 @@
     @include('partials.header')
     @include('partials.subheader')
     <div class="product" id="appProduct">
+        <input type="hidden" id="user" value="@if(Session::has('user')) {{ Session::get('user')['id'] }} @endif">
         <div class="product__container">
             <div class="product__left">
                 <div class="product__img-container">
@@ -38,6 +39,10 @@
                         <div class="product__plus" v-for="product in productImages" :key="product.id">
                             <img :src="product.img_url">
                         </div>
+                    </div>
+                    <div class="product__wishe" v-if="userId">
+                        <a v-if="!wish" @click.prevent="saveWish" href="#">Añadir a mis deseos <i class="fas fa-gift"></i></a>
+                        <a v-if="wish" href="#">Eliminar de mis deseos <i class="fas fa-gift"></i></a>
                     </div>
                 </div>
             </div>
