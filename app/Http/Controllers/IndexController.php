@@ -29,53 +29,74 @@ class IndexController extends Controller {
     public function product($id, Request $request) {
         $finded_product = Product::find($id);
         $store = $finded_product->store;
-        $user = $request->session()->get('user');
-        $client = User::find($user['id'])->client;
-        $following = Favorite::where('store_id', $store->id)->where('client_id', $client->id)->first();
+        $data = [
+            'toggle_class' => false,
+            'store' => $store,
+            'following' => false
+        ];
+
+        if ($request->session()->has('user')) {
+
+            $user = $request->session()->get('user');
+            $client = User::find($user['id'])->client;
+            $following = Favorite::where('store_id', $store->id)->where('client_id', $client->id)->first();
+            $data['following'] =$following;
+
+        }
 
         return view(
             'user.product',
-            [
-                'toggle_class' => false,
-                'store' => $store,
-                'following' => $following
-            ]
+            $data
         );
     }
 
     public function products($id, Request $request) {
         $store = Store::find($id);
         $products = $store->products;
-        $user = $request->session()->get('user');
-        $client = User::find($user['id'])->client;
-        $following = Favorite::where('store_id', $store->id)->where('client_id', $client->id)->first();
+        $data = [
+            'toggle_class' => false,
+            'store' => $store,
+            'products' => $products,
+            'following' => false
+        ];
+
+        if ($request->session()->has('user')) {
+
+            $user = $request->session()->get('user');
+            $client = User::find($user['id'])->client;
+            $following = Favorite::where('store_id', $store->id)->where('client_id', $client->id)->first();
+            $data['following'] =$following;
+
+        }
 
         return view(
             'user.products',
-            [
-                'toggle_class' => false,
-                'store' => $store,
-                'products' => $products,
-                'following' => $following
-            ]
+            $data
         );
     }
 
     public function store($id, Request $request) {
         $store = Store::find($id);
         $products = $store->products;
-        $user = $request->session()->get('user');
-        $client = User::find($user['id'])->client;
-        $following = Favorite::where('store_id', $store->id)->where('client_id', $client->id)->first();
+        $data = [
+            'toggle_class' => false,
+            'store' => $store,
+            'products' => $products,
+            'following' => false
+        ];
+        
+        if ($request->session()->has('user')) {
+
+            $user = $request->session()->get('user');
+            $client = User::find($user['id'])->client;
+            $following = Favorite::where('store_id', $store->id)->where('client_id', $client->id)->first();
+            $data['following'] =$following;
+
+        }
 
         return view(
             'user.deal',
-            [
-                'toggle_class' => false,
-                'store' => $store,
-                'products' => $products,
-                'following' => $following
-            ]
+            $data
         );
     }
 }

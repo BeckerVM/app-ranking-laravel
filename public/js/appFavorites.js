@@ -12564,7 +12564,9 @@ new Vue({
   data: {
     userId: '',
     stores: [],
-    loading: true
+    loading: true,
+    openedModal: false,
+    storeSelected: null
   },
   methods: {
     getFavorites: function getFavorites() {
@@ -12581,6 +12583,25 @@ new Vue({
       })["catch"](function (err) {
         console.log(err.response.data);
       });
+    },
+    deleteFavorite: function deleteFavorite() {
+      var _this2 = this;
+
+      var url = "http://localhost:3000/api/favorites/delete";
+      window.axios.post(url, {
+        userId: this.userId,
+        storeId: this.storeSelected.id
+      }).then(function (response) {
+        _this2.openedModal = !_this2.openedModal;
+
+        _this2.getFavorites();
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    },
+    openModal: function openModal(store) {
+      this.openedModal = !this.openedModal;
+      this.storeSelected = store;
     }
   },
   created: function created() {

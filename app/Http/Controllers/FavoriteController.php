@@ -36,7 +36,19 @@ class FavoriteController extends Controller
 
         $following = Favorite::where('store_id', $store_id)->where('client_id', $client->id)->delete();
 
-        return redirect()->route('shop', [ 'id' => $store_id]);
+        return redirect()->route('shop', ['id' => $store_id]);
+    }
+
+    public function destroy(Request $request) {
+        $data = $request->all();
+        $user_id = $data['userId'];
+        $store_id = $data['storeId'];
+        $client_id = User::find($user_id)->client->id;
+        Favorite::where('store_id', $store_id)->where('client_id', $client_id)->delete();
+
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     public function get(Request $request) {

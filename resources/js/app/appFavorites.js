@@ -5,7 +5,9 @@ new Vue({
   data: {
     userId: '',
     stores: [],
-    loading: true
+    loading: true,
+    openedModal: false,
+    storeSelected: null
   },
   methods: {
     getFavorites: function() {
@@ -19,7 +21,22 @@ new Vue({
       })
       .catch(err => {
         console.log(err.response.data);
-      });
+      })
+    },
+    deleteFavorite: function() {
+      const url = `http://localhost:3000/api/favorites/delete`
+
+      window.axios.post(url, { userId: this.userId, storeId: this.storeSelected.id }).then(response => {
+        this.openedModal = !this.openedModal
+        this.getFavorites()
+      })
+      .catch(err => {
+        console.log(err.response.data);
+      })
+    },
+    openModal: function(store) {
+      this.openedModal = !this.openedModal
+      this.storeSelected = store
     }
   },
   created:  function() {

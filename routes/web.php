@@ -9,6 +9,7 @@ Route::get('/mis-favoritos', 'FavoriteController@index')->name('favorites');
 Route::get('/add-favorites/{store_id}', 'FavoriteController@save')->name('save-favorite');
 Route::get('/delete-favorites/{store_id}', 'FavoriteController@delete')->name('delete-favorite');
 Route::post('/api/favorites', 'FavoriteController@get');
+Route::post('/api/favorites/delete', 'FavoriteController@destroy');
 Route::post('/api/account', 'AccountController@get');
 
 //AUTENTICACION
