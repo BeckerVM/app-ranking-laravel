@@ -42,7 +42,7 @@
                     </div>
                     <div class="product__wishe" v-if="userId">
                         <a v-if="!wish" @click.prevent="saveWish" href="#">Añadir a mis deseos <i class="fas fa-gift"></i></a>
-                        <a v-if="wish" href="#">Eliminar de mis deseos <i class="fas fa-gift"></i></a>
+                        <a v-if="wish" @click.prevent="deleteWish" href="#">Eliminar de mis deseos <i class="fas fa-gift"></i></a>
                     </div>
                 </div>
             </div>

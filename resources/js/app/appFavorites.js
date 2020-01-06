@@ -13,7 +13,7 @@ new Vue({
     getFavorites: function() {
       const url = `http://localhost:3000/api/favorites`
 
-      window.axios.post(url, { id: this.userId }).then(response => {
+      window.axios.post(url).then(response => {
         setTimeout(() => {
           this.stores = response.data.stores
           this.loading = false

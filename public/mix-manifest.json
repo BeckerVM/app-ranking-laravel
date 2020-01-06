@@ -7,5 +7,6 @@
     "/js/appProduct.js": "/js/appProduct.js",
     "/js/appProfile.js": "/js/appProfile.js",
     "/js/appRegister.js": "/js/appRegister.js",
-    "/js/appUsers.js": "/js/appUsers.js"
+    "/js/appUsers.js": "/js/appUsers.js",
+    "/js/appWishes.js": "/js/appWishes.js"
 }

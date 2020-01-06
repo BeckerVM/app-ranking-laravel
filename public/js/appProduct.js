@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12598,6 +12598,18 @@ new Vue({
         console.log(err.response.data);
       });
     },
+    deleteWish: function deleteWish() {
+      var _this3 = this;
+
+      window.axios.post('http://localhost:3000/api/wish/delete', {
+        userId: this.userId,
+        productId: this.product.id
+      }).then(function (response) {
+        _this3.wish = response.data;
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    },
     selectOption: function selectOption(option) {
       this.selectedOption = option;
     }
@@ -12610,7 +12622,7 @@ new Vue({
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!**********************************************!*\
   !*** multi ./resources/js/app/appProduct.js ***!
   \**********************************************/

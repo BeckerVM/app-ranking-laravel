@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12565,7 +12565,8 @@ new Vue({
     option: '',
     loading: true,
     userId: '',
-    stores: []
+    stores: [],
+    wishes: []
   },
   methods: {
     getDataAccount: function getDataAccount() {
@@ -12577,6 +12578,7 @@ new Vue({
       }).then(function (response) {
         setTimeout(function () {
           _this.stores = response.data.stores;
+          _this.wishes = response.data.wishes;
           _this.loading = false;
           _this.option = 'stores';
         }, 1000);
@@ -12608,7 +12610,7 @@ console.log('appProfile');
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**********************************************!*\
   !*** multi ./resources/js/app/appProfile.js ***!
   \**********************************************/

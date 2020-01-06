@@ -23,7 +23,7 @@
     <nav>
       <a href="{{ route('account') }}"><i class="fas fa-user-circle"></i> MI CUENTA</a>
       <a href="{{ route('favorites') }}"><i class="fas fa-store"></i> MIS TIENDAS FAVORITAS</a>
-      <a href=""><i class="fas fa-gift"></i> MIS DESEOS</a>
+      <a href="{{ route('wishes') }}"><i class="fas fa-gift"></i> MIS DESEOS</a>
     </nav>
   </aside>
 </header>

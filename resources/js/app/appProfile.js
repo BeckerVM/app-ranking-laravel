@@ -6,7 +6,8 @@ new Vue({
     option: '',
     loading: true,
     userId: '',
-    stores: []
+    stores: [],
+    wishes: [],
   },
   methods: {
     getDataAccount: function() {
@@ -15,6 +16,7 @@ new Vue({
       window.axios.post(url, { id: this.userId }).then(response => {
         setTimeout(() => {
           this.stores = response.data.stores
+          this.wishes = response.data.wishes
           this.loading = false
           this.option = 'stores'
         }, 1000);

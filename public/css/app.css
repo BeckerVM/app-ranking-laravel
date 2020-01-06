@@ -99,6 +99,11 @@ a {
   display: flex !important;
 }
 
+.flex-start {
+  -webkit-box-pack: start !important;
+          justify-content: flex-start !important;
+}
+
 .j-c-between {
   -webkit-box-pack: justify;
           justify-content: space-between;

@@ -33,6 +33,14 @@ new Vue({
         console.log(err.response.data)
       })
     },
+    deleteWish: function() {
+      window.axios.post('http://localhost:3000/api/wish/delete', { userId: this.userId, productId: this.product.id }).then(response => {
+        this.wish = response.data
+      })
+      .catch(err => {
+        console.log(err.response.data)
+      })
+    },
     selectOption: function(option) {
       this.selectedOption = option
     }

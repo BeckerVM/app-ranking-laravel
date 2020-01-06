@@ -14,8 +14,11 @@ class ProductController extends Controller
         $finded_product = Product::find($data['id']);
         $product_images = $finded_product->images;
         $product_store = $finded_product->store;
+        $client_id = null;
 
-        $client_id = User::find($data['userId'])->client->id;
+        if($data['userId'] != null) {
+            $client_id = User::find($data['userId'])->client->id;
+        }
 
         $wish = Wish::where('product_id', $finded_product->id)->where('client_id', $client_id)->first();
 

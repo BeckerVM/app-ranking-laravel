@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12573,9 +12573,7 @@ new Vue({
       var _this = this;
 
       var url = "http://localhost:3000/api/favorites";
-      window.axios.post(url, {
-        id: this.userId
-      }).then(function (response) {
+      window.axios.post(url).then(function (response) {
         setTimeout(function () {
           _this.stores = response.data.stores;
           _this.loading = false;
@@ -12613,7 +12611,7 @@ console.log('APP FAVORITES');
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!************************************************!*\
   !*** multi ./resources/js/app/appFavorites.js ***!
   \************************************************/

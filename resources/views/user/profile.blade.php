@@ -28,7 +28,7 @@
                 <span>Comentarios</span>
               </div>
               <div class="profile__option">
-                <span>09</span>
+                <span>@{{ wishes.length }}</span>
                 <span>Lista de deseos</span>
               </div>
               <div class="profile__option">
@@ -62,16 +62,16 @@
             <div class="favorites mt-0">
               <h4 class="pr-2">MIS DESEOS</h4>
               <div class="favorites__stores">
-                <div class="favorites__store b-black" v-for="i in 3" :key="i">
+                <div class="favorites__store b-black" v-for="wish in wishes" :key="wish.id">
                   <div class="favorites__store-left pb-0">
-                    <h5>Producto: Bing Bang</h5>
-                    <img class="mb-1" width="142" height="142" src="https://ae01.alicdn.com/kf/HTB1VQPqayDxK1RjSsphq6zHrpXaL/Original-New-Arrival-Adidas-CF-ALL-COURT-Men-s-Tennis-Shoes-Sneakers.jpg" alt="">
-                    <a href="#" class="favorites__link-store">Ver Producto</a>
+                    <h5>@{{ wish.name }}</h5>
+                    <img class="mb-1" width="142" height="142" :src="wish.image" alt="Product">
+                    <a :href="wish.url" class="favorites__link-store">Ver Producto</a>
                   </div>
                   <div class="favorites__store-right pb-0">
                     <div class="favorites__container-wishe-text">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, libero hic! Cumque, nisi tempora quo aliquam enim animi dignissimos ex voluptatum molestiae provident mollitia sed eum nostrum libero error expedita!</p>
-                      <p><strong>Precio:</strong> S/. 99.99 </p>
+                      <p>@{{ wish.description2 }}</p>
+                      <p><strong>Precio:</strong> S/. @{{ wish.price }} </p>
                       <div class="product__stars">
                         <span class="mr-1">4.8 / 5.0</span>
                         <i class="fas fa-star"></i>
@@ -79,7 +79,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-                        <span class="ml-1">Vendidos (200)</span>
+                        <span class="ml-1">Vendidos (@{{ wish.sold }})</span>
                       </div>
                     </div>
                   </div>
