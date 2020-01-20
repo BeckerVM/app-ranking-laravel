@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Wish;
 use App\User;
 use App\Product;
+use App\CommentaryProduct;
 
 class WishController extends Controller
 {
@@ -24,6 +25,7 @@ class WishController extends Controller
         $client = User::find($user['id'])->client;
 
         $wishes = Wish::where('client_id', $client->id)->get();
+
 
         $products = array();
 

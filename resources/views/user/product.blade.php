@@ -109,18 +109,20 @@
                     <div class="product__comment-edit" v-if="myComment && !edit">
                         <button @click="changeEdit">Editar mi comentario?</button>
                     </div>
-                    <div class="product__comment" v-if="!myComment || edit === true">
-                        <textarea v-model="content" type="text" placeholder="Comentar...">
-                        </textarea>
-                        <select v-model="point">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <button @click="saveCommentary" type="button">Comentar</button>
-                    </div>
+                    @if(Session::has('user'))
+                        <div class="product__comment" v-if="!myComment || edit === true">
+                            <textarea v-model="content" type="text" placeholder="Comentar...">
+                            </textarea>
+                            <select v-model="point">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <button @click="saveCommentary" type="button">Comentar</button>
+                        </div>
+                    @endif
                     <div class="product__comentary" v-for="comment in commentaries" :key="comment.user.id">
                         <div class="product__comentary-left">
                             <img class="product__comentary-user" :src="comment.user.img_profile" alt="profile">

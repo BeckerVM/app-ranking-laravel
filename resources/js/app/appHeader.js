@@ -6,7 +6,7 @@ new Vue({
         url: window.location.href,
         urlLogin: 'http://localhost:3000/login',
         urlRegister: 'http://localhost:3000/registrate',
-        openedModal: false,
+        openedModal: true,
     },
     methods: {
         openOrCloseModal: function() {

@@ -12566,7 +12566,8 @@ new Vue({
     loading: true,
     userId: '',
     stores: [],
-    wishes: []
+    wishes: [],
+    comments: []
   },
   methods: {
     getDataAccount: function getDataAccount() {
@@ -12579,6 +12580,7 @@ new Vue({
         setTimeout(function () {
           _this.stores = response.data.stores;
           _this.wishes = response.data.wishes;
+          _this.comments = response.data.comments;
           _this.loading = false;
           _this.option = 'stores';
         }, 1000);

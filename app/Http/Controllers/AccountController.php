@@ -8,6 +8,7 @@ use App\Favorite;
 use App\Wish;
 use App\User;
 use App\Product;
+use App\CommentaryProduct;
 
 class AccountController extends Controller
 {
@@ -17,6 +18,8 @@ class AccountController extends Controller
 
         $favorites = Favorite::where('client_id', $client->id)->get();
         $wishes = Wish::where('client_id', $client->id)->get();
+        $comments = CommentaryProduct::where('user_id', $user['id'])->get();
+
         $stores = array();
         $wishes_array = array();
 
@@ -63,7 +66,8 @@ class AccountController extends Controller
 
         return response()->json([
             'stores' => $stores,
-            'wishes' => $wishes_array
+            'wishes' => $wishes_array,
+            'comments' => $comments
         ]);
     }
 }

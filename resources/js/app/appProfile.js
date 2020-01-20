@@ -8,6 +8,7 @@ new Vue({
     userId: '',
     stores: [],
     wishes: [],
+    comments: []
   },
   methods: {
     getDataAccount: function() {
@@ -17,6 +18,7 @@ new Vue({
         setTimeout(() => {
           this.stores = response.data.stores
           this.wishes = response.data.wishes
+          this.comments = response.data.comments
           this.loading = false
           this.option = 'stores'
         }, 1000);

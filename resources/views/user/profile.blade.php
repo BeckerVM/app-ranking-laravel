@@ -24,7 +24,7 @@
             </div>
             <div class="profile__options">
               <div class="profile__option">
-                <span>09</span>
+                <span>@{{ comments.length }}</span>
                 <span>Comentarios</span>
               </div>
               <div class="profile__option">
@@ -73,12 +73,6 @@
                       <p>@{{ wish.description2 }}</p>
                       <p><strong>Precio:</strong> S/. @{{ wish.price }} </p>
                       <div class="product__stars">
-                        <span class="mr-1">4.8 / 5.0</span>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
                         <span class="ml-1">Vendidos (@{{ wish.sold }})</span>
                       </div>
                     </div>
