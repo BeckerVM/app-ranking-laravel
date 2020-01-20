@@ -18,4 +18,8 @@ class Product extends Model
     public function wishes() {
         return $this->hasMany('App\Wish');
     }
+
+    public function commentaries() {
+        return $this->hasMany('App\CommentaryProduct');
+    }
 }

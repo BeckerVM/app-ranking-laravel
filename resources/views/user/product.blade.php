@@ -7,6 +7,7 @@
     @include('partials.subheader')
     <div class="product" id="appProduct">
         <input type="hidden" id="user" value="@if(Session::has('user')) {{ Session::get('user')['id'] }} @endif">
+        <input type="hidden" id="user" value="@if(Session::has('user')) {{ Session::get('user')['id'] }} @endif">
         <div class="product__container">
             <div class="product__left">
                 <div class="product__img-container">
@@ -24,12 +25,8 @@
                     <p>@{{ product.description }}</p>
                     <div class="product__evaluation">
                         <div class="product__stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>5.00</span>
+                            Calificacion: 
+                            <span>@{{ finalCalification }}</span>
                         </div>
                         <span>@{{ product.sold }} vendidos</span>
                     </div>
@@ -64,74 +61,84 @@
                     @{{ product.description2 }}
                 </div>
                 <div v-if="selectedOption === 'commentaries'" class="product__commentaries">
-                    <h5>Valoraciones (11)</h5>
+                    <h5>Valoraciones (@{{ commentaries.length }})</h5>
                     <div class="product__valoration-container">
                         <div class="product__valoration-left">
                             <div class="product__valoration">
                                 <span>5 Estrellas</span>
                                 <div class="product__valoration-line">
-                                    <div v-bind:style="{ width: 82 + '%' }" class="product__valoration-line-color"></div>
+                                    <div v-bind:style="{ width: porcent.five + '%' }" class="product__valoration-line-color"></div>
                                 </div>
-                                <span class="product__valoration-porc">82%</span>
+                                <span class="product__valoration-porc">@{{ porcent.five }} %</span>
                             </div>
                             <div class="product__valoration">
                                 <span>4 Estrellas</span>
                                 <div class="product__valoration-line">
-                                    <div v-bind:style="{ width: 18 + '%' }" class="product__valoration-line-color"></div>
+                                    <div v-bind:style="{ width: porcent.four + '%' }" class="product__valoration-line-color"></div>
                                 </div>
-                                <span class="product__valoration-porc">18%</span>
+                                <span class="product__valoration-porc">@{{ porcent.four }} %</span>
                             </div>
                             <div class="product__valoration">
                                 <span>3 Estrellas</span>
                                 <div class="product__valoration-line">
-                                    <div v-bind:style="{ width: 0 + '%' }" class="product__valoration-line-color"></div>
+                                    <div v-bind:style="{ width: porcent.three + '%' }" class="product__valoration-line-color"></div>
                                 </div>
-                                <span class="product__valoration-porc">0%</span>
+                                <span class="product__valoration-porc"> @{{ porcent.three }} %</span>
                             </div>
                             <div class="product__valoration">
                                 <span>2 Estrellas</span>
                                 <div class="product__valoration-line">
-                                    <div v-bind:style="{ width: 0 + '%' }" class="product__valoration-line-color"></div>
+                                    <div v-bind:style="{ width: porcent.two + '%' }" class="product__valoration-line-color"></div>
                                 </div>
-                                <span class="product__valoration-porc">0%</span>
+                                <span class="product__valoration-porc"> @{{ porcent.two }} %</span>
                             </div>
                             <div class="product__valoration">
                                 <span>1 Estrella</span>
                                 <div class="product__valoration-line">
-                                    <div v-bind:style="{ width: 0 + '%' }" class="product__valoration-line-color"></div>
+                                    <div v-bind:style="{ width: porcent.one + '%' }" class="product__valoration-line-color"></div>
                                 </div>
-                                <span class="product__valoration-porc">82%</span>
+                                <span class="product__valoration-porc">@{{ porcent.one }} %</span>
                             </div>
                         </div>
                         <div class="product__valoration-right">
                             <div class="product__stars">
-                                <span>4.8 / 5.0</span>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                Calificacion: <span>@{{ finalCalification }} / 5</span>
                             </div>
                         </div>
                     </div>
-                    <div class="product__comentary" v-for="i in 10" :key="i">
+                    <div class="product__comment-edit" v-if="myComment && !edit">
+                        <button @click="changeEdit">Editar mi comentario?</button>
+                    </div>
+                    <div class="product__comment" v-if="!myComment || edit === true">
+                        <textarea v-model="content" type="text" placeholder="Comentar...">
+                        </textarea>
+                        <select v-model="point">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <button @click="saveCommentary" type="button">Comentar</button>
+                    </div>
+                    <div class="product__comentary" v-for="comment in commentaries" :key="comment.user.id">
                         <div class="product__comentary-left">
-                            <img class="product__comentary-user" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTMXrsFHeVVEaWkCc5Ex10ysdwqK3ukMUmG1MRaAOSuVUq-zC9&s" alt="">
-                            <span>RekceBVM</span>
+                            <img class="product__comentary-user" :src="comment.user.img_profile" alt="profile">
+                            <span>@{{ comment.user.username }}</span>
                         </div>
                         <div class="product__comentary-right">
                             <div class="product__stars mb-1">
-                                <span>Valoracion: 5.0 -></span>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <span>Valoracion: @{{ comment.commentary.calification }} -></span>
+                                <i class="fas fa-star mr-5" v-for="i in comment.commentary.calification" :key="i"></i>
+                                
                             </div>
                             <div class="product__comentary-text">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas iste laboriosam in, debitis architecto laborum fuga exercitationem, quibusdam, nostrum fugiat iusto repudiandae eum corrupti. Praesentium, delectus nesciunt? Illum tempora voluptatum eius possimus voluptatibus. Alias fugiat ullam praesentium vel commodi ad non nobis enim minima deserunt rerum asperiores sunt esse culpa at necessitatibus corrupti possimus illum nulla magni, quasi dicta perspiciatis.
+                                @{{ comment.commentary.content }}
                             </div>
                         </div>
+                    </div>
+                    <div v-if="commentaries.length === 0" class="mt-10 text-center">
+                        No existen commnetarios
                     </div>
                 </div>
             <div v-if="selectedOption === 'detail'" class="product__detail">@{{ product.detail }}</div>

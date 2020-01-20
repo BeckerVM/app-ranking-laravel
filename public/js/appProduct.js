@@ -12566,10 +12566,38 @@ new Vue({
     productImages: [],
     productStore: null,
     selectedOption: 'commentaries',
-    userId: null,
-    wish: null
+    userId: document.getElementById('user').value,
+    wish: null,
+    commentaries: [],
+    porcent: {
+      one: 0,
+      two: 0,
+      three: 0,
+      four: 0,
+      five: 0
+    },
+    calification: {
+      one: 0,
+      two: 0,
+      three: 0,
+      four: 0,
+      five: 0
+    },
+    myComment: null,
+    content: '',
+    point: '1',
+    edit: false,
+    finalCalification: 0
   },
   methods: {
+    changeEdit: function changeEdit() {
+      this.edit = true;
+
+      if (this.myComment) {
+        this.content = this.myComment.content;
+        this.point = this.myComment.calification;
+      }
+    },
     getProduct: function getProduct() {
       var _this = this;
 
@@ -12582,30 +12610,72 @@ new Vue({
         _this.product = response.data.product, _this.productImages = response.data.productImages;
         _this.productStore = response.data.productStore;
         _this.wish = response.data.wish;
+
+        _this.getCommentaries(_this.product.id, _this.userId);
       })["catch"](function (err) {
         console.log(err.response.data);
       });
     },
-    saveWish: function saveWish() {
+    getCommentaries: function getCommentaries(productId, userId) {
       var _this2 = this;
+
+      window.axios.post('http://localhost:3000/api/commentaries', {
+        userId: userId,
+        productId: productId
+      }).then(function (response) {
+        _this2.calification = response.data.calification;
+        _this2.commentaries = response.data.commentaries;
+        _this2.porcent = response.data.porcent;
+        _this2.myComment = response.data.commentary;
+        _this2.finalCalification = response.data.finalCalification;
+      })["catch"](function (error) {
+        console.log(error.response.data);
+      });
+    },
+    saveCommentary: function saveCommentary() {
+      var _this3 = this;
+
+      var url = 'http://localhost:3000/api/commentaries/save';
+
+      if (this.edit === true) {
+        url = 'http://localhost:3000/api/commentaries/update';
+      }
+
+      if (this.content !== '') {
+        window.axios.post(url, {
+          content: this.content,
+          calification: this.point,
+          userId: this.userId,
+          productId: this.product.id
+        }).then(function (response) {
+          _this3.getCommentaries(_this3.product.id, _this3.userId);
+
+          _this3.edit = false;
+        })["catch"](function (error) {
+          console.log(error.response.data);
+        });
+      }
+    },
+    saveWish: function saveWish() {
+      var _this4 = this;
 
       window.axios.post('http://localhost:3000/api/wish/save', {
         userId: this.userId,
         productId: this.product.id
       }).then(function (response) {
-        _this2.wish = response.data;
+        _this4.wish = response.data;
       })["catch"](function (err) {
         console.log(err.response.data);
       });
     },
     deleteWish: function deleteWish() {
-      var _this3 = this;
+      var _this5 = this;
 
       window.axios.post('http://localhost:3000/api/wish/delete', {
         userId: this.userId,
         productId: this.product.id
       }).then(function (response) {
-        _this3.wish = response.data;
+        _this5.wish = response.data;
       })["catch"](function (err) {
         console.log(err.response.data);
       });

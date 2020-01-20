@@ -17,4 +17,8 @@ class User extends Model
     public function admin() {
         return $this->hasOne('App\Admin');
     }
+
+    public function commentaries() {
+        return $this->hasMany('App\CommentaryProduct');
+    }
 }

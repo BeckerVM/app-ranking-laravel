@@ -16,6 +16,9 @@ Route::post('/api/account', 'AccountController@get');
 Route::post('/api/wishes', 'WishController@get');
 Route::post('/api/wish/save', 'WishController@save');
 Route::post('/api/wish/delete', 'WishController@delete');
+Route::post('/api/commentaries', 'CommentaryController@get');
+Route::post('/api/commentaries/save', 'CommentaryController@save');
+Route::post('/api/commentaries/update', 'CommentaryController@update');
 
 //AUTENTICACION
 Route::get('/login', 'AuthController@login')->name('login');
